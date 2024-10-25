@@ -1,4 +1,4 @@
-package 정성호_member_dto;
+package 정성호.member_dto;
 
 public class MemberDTO {
 	private String m_id,m_pwd,m_name,m_addr,m_phone;

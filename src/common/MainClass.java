@@ -3,8 +3,8 @@ package common;
 import java.sql.Connection;
 import java.util.Scanner;
 import common.DBConnect;
-import 정성호_login_service.LoginService;
-import 정성호_login_service.LoginServiceImpl;
+import 정성호.login_service.LoginService;
+import 정성호.login_service.LoginServiceImpl;
 
 public class MainClass {
 	public static void main(String[] args) {
