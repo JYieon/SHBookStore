@@ -29,6 +29,8 @@ public class LoginDAO {
 				dto.setM_id(rs.getString("m_id"));
 				dto.setM_name(rs.getString("m_name"));
 				dto.setM_pwd(rs.getString("m_pwd"));
+				dto.setM_addr(rs.getString("m_addr"));
+				dto.setM_phone(rs.getString("m_phone"));
 			}else {
 				
 			}
