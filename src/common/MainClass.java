@@ -59,3 +59,4 @@ public class MainClass {
 		}
 	}
 }
+//dto에서 db데이터를 저장시킨 객체를 
