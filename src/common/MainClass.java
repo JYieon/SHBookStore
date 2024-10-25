@@ -16,14 +16,19 @@ public class MainClass {
 		LoginService lo = new LoginServiceImpl();
 		MemberDTO d = null;
 		while(true) {
-			System.out.println("1. 로그인"); //정성호
-			System.out.println("2. 회원가입"); //최지연
-			System.out.println("3. 도서 구매"); //이유나
-			System.out.println("4. 마이페이지"); //김수지, 전영민 	
-			System.out.println("5. 서비스 종료"); //최지연
-			System.out.print(">>> ");
-			num = input.nextInt();
-			switch(num){
+//			System.out.println("1. 로그인"); //정성호
+//			System.out.println("2. 회원가입"); //최지연
+//			System.out.println("3. 도서 구매"); //이유나
+//			System.out.println("4. 마이페이지"); //김수지, 전영민 	
+//			System.out.println("5. 서비스 종료"); //최지연
+//			System.out.print(">>> ");
+//			num = input.nextInt();
+			if(n == null) {
+				System.out.println("1. 로그인"); //정성호
+				System.out.println("2. 회원가입"); //최지연
+				System.out.print(">>> ");
+				num = input.nextInt();
+				switch(num){
 				case 1: //로그인
 //					d = lo.login();
 					n = lo.login();
@@ -31,12 +36,25 @@ public class MainClass {
 				case 2: //회원가입
 					System.out.println(n);
 					break;
+				}
+			}else {
+				System.out.println("3. 도서 구매"); //이유나
+				System.out.println("4. 마이페이지"); //김수지, 전영민 	
+				System.out.println("5. 로그아웃"); //정성호
+				System.out.println("6. 서비스 종료"); //최지연
+				System.out.print(">>> ");
+				num = input.nextInt();
+				switch(num){
 				case 3: //도서구매
 					break;
 				case 4: //마이페이지
 					break;
-				case 5: // 종료 
+				case 5: // 로그아웃
+					n = lo.logout();
 					break;
+				case 6: // 종료
+					break;
+				}
 			}
 		}
 	}

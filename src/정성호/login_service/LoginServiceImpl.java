@@ -30,4 +30,12 @@ public class LoginServiceImpl implements LoginService {
 		}
 		return send_id;
 	}
+
+
+	@Override
+	public String logout() {
+		
+		return null;
+	}
+	
 }
