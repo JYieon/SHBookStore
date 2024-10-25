@@ -6,7 +6,7 @@ public class MemberDTO {
 	public MemberDTO() {
 		
 	}
-	public MemberDTO(String id,String pwd) {
+	public MemberDTO(String id, String pwd) {
 		m_id = id; m_pwd = pwd;
 	}
 

@@ -17,7 +17,24 @@ public class LoginDAO {
 	
 	public MemberDTO login(String id,String pwd) {
 		MemberDTO dto = null;
-		String sql = "select m_id,m_pwd from member where id =";
+		String sql = "SELECT * from member where m_id= ? and m_pwd = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, pwd);
+//			 System.out.println("Executing query: " + sql + " with id: " + id + " and pwd: " + pwd);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				dto = new MemberDTO();
+				dto.setM_id(rs.getString("m_id"));
+				dto.setM_name(rs.getString("m_name"));
+				dto.setM_pwd(rs.getString("m_pwd"));
+			}else {
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return dto;
 	}
 	

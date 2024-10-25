@@ -1,16 +1,20 @@
 package common;
 
+import java.lang.reflect.Member;
 import java.sql.Connection;
 import java.util.Scanner;
 import common.DBConnect;
 import 정성호.login_service.LoginService;
 import 정성호.login_service.LoginServiceImpl;
+import 정성호.member_dto.MemberDTO;
 
 public class MainClass {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int num;
+		String n = null;
 		LoginService lo = new LoginServiceImpl();
+		MemberDTO d = null;
 		while(true) {
 			System.out.println("1. 로그인"); //정성호
 			System.out.println("2. 회원가입"); //최지연
@@ -21,9 +25,11 @@ public class MainClass {
 			num = input.nextInt();
 			switch(num){
 				case 1: //로그인
-					lo.login();
+//					d = lo.login();
+					n = lo.login();
 					break;
 				case 2: //회원가입
+					System.out.println(n);
 					break;
 				case 3: //도서구매
 					break;
