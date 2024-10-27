@@ -2,11 +2,14 @@ package common;
 
 import java.lang.reflect.Member;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Scanner;
 import common.DBConnect;
 import 정성호.login_service.LoginService;
 import 정성호.login_service.LoginServiceImpl;
 import 정성호.member_dto.MemberDTO;
+import 최지연.service.*;
 
 public class MainClass {
 	public static void main(String[] args) {
@@ -14,8 +17,10 @@ public class MainClass {
 		int num;
 		String n = null; // m_id값
 		LoginService lo = new LoginServiceImpl();
+		SignUpService su = new SignUpServiceImpl();
 		MemberDTO d = null; // 해당 아이디의 member 전체 값
-		while(true) {
+		boolean bool = true;
+		while(bool) {
 //			System.out.println("1. 로그인"); //정성호
 //			System.out.println("2. 회원가입"); //최지연
 //			System.out.println("3. 도서 구매"); //이유나
@@ -26,7 +31,7 @@ public class MainClass {
 			if(d == null) {
 				System.out.println("1. 로그인"); //정성호
 				System.out.println("2. 회원가입"); //최지연
-				System.out.println("3. 서비스 종료"); //최지연
+				System.out.println("3. 서비스 종료");
 				System.out.print(">>> ");
 				num = input.nextInt();
 				switch(num){
@@ -35,10 +40,12 @@ public class MainClass {
 //					n = lo.login(); // id 값
 					break;
 				case 2: //회원가입
-					System.out.println(n);
+					su.SignUp();
 					break;
-				case 3: // 종료
-					return;
+				case 3:
+					bool = false;
+					System.out.println("[서비스를 종료합니다]");
+					break;
 				}
 			}else {
 				System.out.println("1. 로그아웃"); //정성호
