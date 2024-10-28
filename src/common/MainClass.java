@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Scanner;
 import common.DBConnect;
+import 정성호.login_service.AdminService;
+import 정성호.login_service.AdminServiceImpl;
 import 정성호.login_service.LoginService;
 import 정성호.login_service.LoginServiceImpl;
 import 정성호.member_dto.MemberDTO;
@@ -18,6 +20,7 @@ public class MainClass {
 		String n = null; // m_id값
 		LoginService lo = new LoginServiceImpl();
 		SignUpService su = new SignUpServiceImpl();
+		AdminService am = new AdminServiceImpl();
 		MemberDTO d = null; // 해당 아이디의 member 전체 값
 		boolean bool = true;
 		while(bool) {
@@ -47,6 +50,51 @@ public class MainClass {
 					System.out.println("[서비스를 종료합니다]");
 					break;
 				}
+			}else if(d.getM_id().equals("admin")) {
+				System.out.println("1. 로그아웃"); //정성호
+				System.out.println("2. 회원 추가"); 
+				System.out.println("3. 회원 수정"); 	
+				System.out.println("4. 전체 회원 보기");
+				System.out.println("5. 회원 찾기");
+				System.out.println("6. 회원 삭제");
+				System.out.println("7. 서비스 종료");
+				System.out.print(">>> ");
+				num = input.nextInt();
+				switch(num){
+				case 1: // 로그아웃
+//					n = lo.logout();
+					d = lo.logout();
+					break;
+				case 2: //회원 추가
+					am.memberadd();
+					break;
+				case 3: //회원 수정
+					am.memberupdate();
+					break;
+				case 4: // 전체 회원 보기
+					am.allmember();
+					break;
+				case 5: // 회원 찾기
+					MemberDTO m = new MemberDTO();
+					m = am.membersearch();
+					if(m != null) {
+					System.out.println("이름 : " + m.getM_name());
+					System.out.println("전화번호 : " + m.getM_phone());
+					System.out.println("주소 : " + m.getM_addr());
+					System.out.println("id : " + m.getM_id());
+					System.out.println("pwd : " + m.getM_pwd());
+					}else {
+						
+					}
+					break;
+				case 6: // 회원 삭제
+					am.memberdelete();
+					break;
+				case 7: // 종료
+					bool = false;
+					System.out.println("[서비스를 종료합니다]");
+					break;
+					}
 			}else {
 				System.out.println("1. 로그아웃"); //정성호
 				System.out.println("2. 도서 구매"); //이유나
@@ -57,7 +105,7 @@ public class MainClass {
 				switch(num){
 				case 1: // 로그아웃
 //					n = lo.logout();
-					d = null;
+					d = lo.logout();
 					break;
 				case 2: //도서구매
 					break;

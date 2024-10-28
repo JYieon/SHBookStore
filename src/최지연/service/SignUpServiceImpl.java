@@ -25,7 +25,7 @@ public class SignUpServiceImpl implements SignUpService{
 		name = input.next();
 		while(true) {
 			try {
-				System.out.print("회원 전화번호(-제외)\t: "); //int로 변경
+				System.out.print("회원 전화번호(-제외)\t: "); //long로 변경
 				phone = input.nextLong();
 				if (String.valueOf(phone).length() >= 10 && String.valueOf(phone).length() <= 11) { //번호를 문자열로 저장해 값 비교
 					break;

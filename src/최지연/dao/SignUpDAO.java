@@ -19,7 +19,7 @@ public class SignUpDAO {
 	}
 	
 	public int insert(String id, String pwd, String name, Long phone, String addr) {
-	    String sql = "INSERT INTO member VALUES (?, ?, ?, ?, ?)";
+	    String sql = "insert into member values(?, ?, ?, ?, ?)";
 	    int result = 0;
 	    try {
 	        ps = con.prepareStatement(sql);

@@ -30,9 +30,9 @@ public class LoginDAO {
 				dto.setM_name(rs.getString("m_name"));
 				dto.setM_pwd(rs.getString("m_pwd"));
 				dto.setM_addr(rs.getString("m_addr"));
-				dto.setM_phone(rs.getString("m_phone"));
+				dto.setM_phone(rs.getLong("m_phone"));
 			}else {
-				
+				System.err.println("해당 아이디가 없습니다.");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
