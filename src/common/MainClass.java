@@ -15,31 +15,19 @@ import 정성호.login_service.LoginService;
 import 정성호.login_service.LoginServiceImpl;
 import 정성호.member_dto.MemberDTO;
 import 최지연.service.*;
->>>>>>> 4a905f3a30ee08178e27600932a6b2f294aeffa5
 
 public class MainClass {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int num;
-
 		BookServiceImpl bookimpl = new BookServiceImpl();
-		
-		while(true) {
-			System.out.println("1. 로그인"); //정성호
-			System.out.println("2. 회원가입"); //최지연
-			System.out.println("3. 도서 구매"); //이유나
-			System.out.println("4. 마이페이지"); //김수지, 전영민 	
-			System.out.println("5. 서비스 종료"); //최지연
-			System.out.print(">>> ");
-			num = input.nextInt();
-			switch(num){
-
 		String n = null; // m_id값
 		LoginService lo = new LoginServiceImpl();
 		SignUpService su = new SignUpServiceImpl();
 		AdminService am = new AdminServiceImpl();
 		MemberDTO d = null; // 해당 아이디의 member 전체 값
 		boolean bool = true;
+		
 		while(bool) {
 //			System.out.println("1. 로그인"); //정성호
 //			System.out.println("2. 회원가입"); //최지연
@@ -65,12 +53,8 @@ public class MainClass {
 					break;
 
 				case 3: //도서구매
-					bookimpl.display();
-
-				case 3:
 					bool = false;
 					System.out.println("[서비스를 종료합니다]");
-
 					break;
 				}
 			}else if(d.getM_id().equals("admin")) {
