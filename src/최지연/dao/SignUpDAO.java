@@ -16,7 +16,7 @@ public class SignUpDAO {
 		con = DBConnect.getConnect();
 	}
 	
-	public int insert(String id, String pwd, String name, String phone, String addr) {
+	public int insert(String id, String pwd, String name, int phone, String addr) {
 		String sql = "insert into member values(?, ?, ?, ?, ?)";
 		int result = 0;
 		try {
@@ -25,7 +25,7 @@ public class SignUpDAO {
 			ps.setString(2, pwd);
 			ps.setString(3, name);
 			ps.setString(4, addr);
-			ps.setString(5, phone);
+			ps.setInt(5, phone);
 			result = ps.executeUpdate();
 			
 		} catch (Exception e) {

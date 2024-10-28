@@ -19,7 +19,7 @@ public class SignUpServiceImpl implements SignUpService{
 		System.out.print("회원 이름\t\t: ");
 		String name = input.next();
 		System.out.print("회원 전화번호(-제외)\t: "); //동일한 전화번호 가입못하도록 할 것
-		String phone = input.next();
+		int phone = input.nextInt();
 		System.out.print("회원 주소\t\t: ");
 		String addr = input.next();
 		System.out.print("회원 id\t\t: ");
