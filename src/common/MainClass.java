@@ -48,6 +48,7 @@ public class MainClass {
 //					n = lo.login(); // id 값
 					break;
 				case 2: //회원가입
+					System.out.println("[회원가입]");
 					su.signUp();
 					break;
 
