@@ -39,7 +39,7 @@ public class AdminDAO {
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, name);
-			ps.setInt(2, phone);
+			ps.setLong(2, phone);
 			ps.setString(3, addr);
 			ps.setString(4, pwd);
 			ps.setString(5, id);
