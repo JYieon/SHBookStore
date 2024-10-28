@@ -40,7 +40,7 @@ public class MainClass {
 //					n = lo.login(); // id 값
 					break;
 				case 2: //회원가입
-					su.SignUp();
+					su.signUp();
 					break;
 				case 3:
 					bool = false;
