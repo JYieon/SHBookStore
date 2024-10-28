@@ -3,11 +3,13 @@ package common;
 import java.sql.Connection;
 import java.util.Scanner;
 import common.DBConnect;
+import 이유나.BookServiceImpl;
 
 public class MainClass {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int num;
+		BookServiceImpl bookimpl = new BookServiceImpl();
 		
 		while(true) {
 			System.out.println("1. 로그인"); //정성호
@@ -23,6 +25,7 @@ public class MainClass {
 				case 2: //회원가입
 					break;
 				case 3: //도서구매
+					bookimpl.display();
 					break;
 				case 4: //마이페이지
 					break;
