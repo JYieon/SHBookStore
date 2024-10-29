@@ -12,6 +12,7 @@ public class SearchServiceImpl implements SearchService {
 	
 	public void SearchServiceImpl() {
 		dao = new SearchDAO();
+		BookServiceImpl dis = new BookServiceImpl();
 	}
 	public void search() { //도서검색 
 		
@@ -39,13 +40,13 @@ public class SearchServiceImpl implements SearchService {
 			
 			ArrayList<SearchDTO> sb = dao.searchBook(name);
 			sb = dao.searchBook(name);
-			for(SearchDTO b : books) {
+			for(SearchDTO a : books) {
 				
 				System.out.printf("%-10d %-30s %20s %20s %10d%n", 
-                        b.getName(), 
-                        b.getAuthor(), 
-                        b.getPublisher(), 
-                        b.getCategory());
+                        a.getName(), 
+                        a.getAuthor(), 
+                        a.getPublisher(), 
+                        a.getCategory());
                        
 			}
 			
@@ -53,14 +54,15 @@ public class SearchServiceImpl implements SearchService {
 		case 2:
 			System.out.println("작가 이름 입력 : ");
 			String searchAuthor = input.next();
+			
 			sb = dao.searchBook(name);
-			for(SearchDTO b : books) {
+			for(SearchDTO a : books) {
 				
 				System.out.printf("%-10d %-30s %20s %20s %10d%n", 
-                        b.getName(), 
-                        b.getAuthor(), 
-                        b.getPublisher(), 
-                        b.getCategory());
+                        a.getName(), 
+                        a.getAuthor(), 
+                        a.getPublisher(), 
+                        a.getCategory());
                        
 			}
 			//searchAuthor();
