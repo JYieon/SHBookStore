@@ -1,9 +1,8 @@
-package 최지연.dao;
+package 이유나.이유나_DB_DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import common.DBConnect;
 import 정성호.member_dto.MemberDTO;
 
@@ -24,7 +23,7 @@ public class SearchDAO {
 			rs = ps.executeQuery(); 
 			if(rs.next()) {
 				dto = new MemberDTO();
-				dto.
+			}
 		} catch (Exception e) {
 			
 		}

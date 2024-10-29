@@ -121,8 +121,8 @@ public class MainClass {
 					
 					break;
 				case 3: //마이페이지
-					MyPage_ServiceImp myPageService = new MyPage_ServiceImp(); //수정,탈퇴
-					 myPageService.UpdateDelete();
+					MyPage_ServiceImp myPageService = new MyPage_ServiceImp(d.getM_id()); //수정,탈퇴
+					myPageService.UpdateDelete(d.getM_id());
 					break;
 				case 4: // 종료
 					return;
