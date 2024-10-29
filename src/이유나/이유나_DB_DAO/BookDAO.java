@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import common.DBConnect;
+import 이유나.BookDTO;
 
 public class BookDAO {
 	Connection con;
@@ -27,7 +28,7 @@ public class BookDAO {
 			while(rs.next()) {
 				
 				BookDTO book = new BookDTO();
-				book.setId(rs.getInt("b_id"));
+				book.setB_id(rs.getInt("b_id"));
 				book.setName(rs.getString("b_name"));
 				book.setAuthor(rs.getString("b_author")) ;
 				book.setPublisher(rs.getString("b_publisher"));
@@ -44,6 +45,27 @@ public class BookDAO {
     	
     		
     	
+    }
+    public int cart(BookDTO b2 ) {
+    	int result =0;
+    	String sql = "insert into basket values(?, ?, ?, ?, ?, ?)";
+    	
+    	try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1, b2.getM_id() );
+			ps.setInt(2, b2.getB_id());
+			ps.setString(3, b2.getName());
+			ps.setInt(4, b2.getPrice());
+			ps.setInt(5, b2.getCount());
+			ps.setInt(6, b2.getTotal());
+			result = ps.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("동일한 아이디가 존재합니다");
+			e.printStackTrace();
+		}
+		return result;
     }
 }
 
