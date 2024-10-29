@@ -53,8 +53,23 @@ public class BookServiceImpl implements BookService {
 					dao.cart(b2,b_count,u_id);
 					break;
 				case 2 :
-					System.out.println("결제가 완료되었습니다.");
-					dao.buy(b2,b_count,u_id);
+					System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
+					System.out.printf("%-10d %-30s %20s %20s %10d%n", 
+	                        b2.getB_id(), 
+	                        b2.getName(), 
+	                        b2.getAuthor(), 
+	                        b2.getPublisher(), 
+	                        b2.getPrice());
+					System.out.println("수량 : " + b_count + "\t 결제 금액 : " + (b2.getPrice()*b_count));
+					System.out.println("1.결제");
+					System.out.println("2.결제 취소");
+					int num2 = input.nextInt();
+					if(num2 == 1) {
+						System.out.println("결제가 완료되었습니다.");
+						dao.buy(b2,b_count,u_id);
+					}else {
+						System.out.println("결제가 취소되었습니다.");	
+					}
 					break;
 				case 3 :
 					System.out.println("구매가 취소되었습니다.");
