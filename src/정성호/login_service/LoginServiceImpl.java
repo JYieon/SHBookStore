@@ -10,26 +10,6 @@ public class LoginServiceImpl implements LoginService {
 	public LoginServiceImpl() {
 		dao = new LoginDAO();
 	}
-	
-	@Override
-	public String login() {
-		Scanner input = new Scanner(System.in);
-		String id,pwd,send_id=null;
-		System.out.println("아이디 : ");
-		id = input.next();
-		System.out.println("비밀번호 :");
-		pwd = input.next();
-		MemberDTO dto = dao.login(id, pwd);
-		if(dto != null) {
-			System.out.println(dto.getM_name()+"님 로그인 성공 하셨습니다.");
-			send_id = dto.getM_id();
-		}else {
-			System.out.println("존재하는 id가 없습니다.");
-			System.out.println("다시 로그인하세요!!!");
-		}
-		return send_id;
-	}
-
 
 	@Override
 	public MemberDTO logout() {
@@ -41,9 +21,9 @@ public class LoginServiceImpl implements LoginService {
 	public MemberDTO login2() {
 		Scanner input = new Scanner(System.in);
 		String id,pwd;
-		System.out.println("아이디 : ");
+		System.out.print("아이디 : ");
 		id = input.next();
-		System.out.println("비밀번호 :");
+		System.out.print("비밀번호 :");
 		pwd = input.next();
 		MemberDTO dto = dao.login(id, pwd);
 		if(dto == null) {

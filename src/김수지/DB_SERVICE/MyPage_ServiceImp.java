@@ -13,16 +13,13 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
     public MyPage_ServiceImp() {
     	dao = new UpdateDeleteDAO();
     }
-    
-    public MyPage_ServiceImp(String uid) {
-    	dao = new UpdateDeleteDAO();
-    }
 
     public void UpdateDelete(String uid) {
         while (true) {
             System.out.println("1. 장바구니");
             System.out.println("2. 구매내역");
             System.out.println("3. 회원정보 수정 및 탈퇴");
+            System.out.println("4. 뒤로가기");
             num = input.nextInt();
             input.nextLine();
 
@@ -42,6 +39,8 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
                         delete(uid); // 회원정보 탈퇴
                     }
                     break;
+                case 4:
+                	return;
                 default:
                     System.out.println("올바른 번호를 입력하세요.");
                     break;
@@ -82,6 +81,4 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
             System.out.println("회원탈퇴 실패.");
         }
     }
-
-	
 }

@@ -25,18 +25,13 @@ public class MainClass {
 		LoginService lo = new LoginServiceImpl();
 		SignUpService su = new SignUpServiceImpl();
 		AdminService am = new AdminServiceImpl();
+		MyPage_ServiceImp myPageService = new MyPage_ServiceImp(); //수정,탈퇴
 		
 		BookServiceImpl book = new BookServiceImpl();
 		boolean bool = true;
 		while(bool) {
-//			System.out.println("1. 로그인"); //정성호
-//			System.out.println("2. 회원가입"); //최지연
-//			System.out.println("3. 도서 구매"); //이유나
-//			System.out.println("4. 마이페이지"); //김수지, 전영민 	
-//			System.out.println("5. 서비스 종료"); //최지연
-//			System.out.print(">>> ");
-//			num = input.nextInt();
 			if(d == null) {
+				System.out.println("[성호 서점]");
 				System.out.println("1. 로그인"); //정성호
 				System.out.println("2. 회원가입"); //최지연
 				System.out.println("3. 서비스 종료");
@@ -49,7 +44,6 @@ public class MainClass {
 //					n = lo.login(); // id 값
 					break;
 				case 2: //회원가입
-					System.out.println("[회원가입]");
 					su.signUp();
 					break;
 
@@ -121,7 +115,6 @@ public class MainClass {
 					
 					break;
 				case 3: //마이페이지
-					MyPage_ServiceImp myPageService = new MyPage_ServiceImp(d.getM_id()); //수정,탈퇴
 					myPageService.UpdateDelete(d.getM_id());
 					break;
 				case 4: // 종료

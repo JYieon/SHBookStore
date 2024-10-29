@@ -18,8 +18,8 @@ public class SignUpServiceImpl implements SignUpService{
 	
 	public void signUp() {
 		Scanner input = new Scanner(System.in);
-		boolean end = false;
 		int result = 0;
+		System.out.println("[회원가입]");
 		System.out.print("회원 이름\t\t: ");
 		name = input.next();
 		while(true) {
@@ -40,7 +40,7 @@ public class SignUpServiceImpl implements SignUpService{
 			System.out.println("이미 계정이 있는 번호입니다");
 		}else {
 			System.out.print("회원 주소\t\t: ");
-			addr = input.next();
+			addr = input.nextLine();
 			System.out.print("회원 id\t\t: ");
 			id = input.next();
 			while(true) {
