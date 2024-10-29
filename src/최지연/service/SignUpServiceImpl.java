@@ -20,7 +20,6 @@ public class SignUpServiceImpl implements SignUpService{
 		Scanner input = new Scanner(System.in);
 		boolean end = false;
 		int result = 0;
-		System.out.println("[회원가입]");
 		System.out.print("회원 이름\t\t: ");
 		name = input.next();
 		while(true) {

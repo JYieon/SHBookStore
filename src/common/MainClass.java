@@ -1,10 +1,8 @@
 package common;
 
-import java.lang.reflect.Member;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.Scanner;
+
+import 김수지.DB_SERVICE.MyPage_ServiceImp;//전영민
 import common.DBConnect;
 
 import 이유나.BookServiceImpl;
@@ -14,7 +12,8 @@ import 정성호.login_service.AdminServiceImpl;
 import 정성호.login_service.LoginService;
 import 정성호.login_service.LoginServiceImpl;
 import 정성호.member_dto.MemberDTO;
-import 최지연.service.*;
+import 최지연.service.SignUpService;
+import 최지연.service.SignUpServiceImpl;
 
 public class MainClass {
 	public static void main(String[] args) {
@@ -50,6 +49,7 @@ public class MainClass {
 //					n = lo.login(); // id 값
 					break;
 				case 2: //회원가입
+					System.out.println("[회원가입]");
 					su.signUp();
 					break;
 
@@ -121,6 +121,8 @@ public class MainClass {
 					
 					break;
 				case 3: //마이페이지
+					MyPage_ServiceImp myPageService = new MyPage_ServiceImp(); //수정,탈퇴
+					 myPageService.UpdateDelete();
 					break;
 				case 4: // 종료
 					return;

@@ -1,6 +1,7 @@
 package 정성호.login_service;
 
 import java.util.ArrayList;
+import 최지연.service.*;
 import java.util.Scanner;
 
 import 정성호.login_dao.AdminDAO;
@@ -22,24 +23,8 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public void memberadd() {
-		System.out.println("[회원 추가]");
-		System.out.print("회원 이름\t\t: ");
-		String name = input.next();
-		System.out.print("회원 전화번호(-제외)\t: "); //동일한 전화번호 가입못하도록 할 것
-		int phone = input.nextInt();
-		System.out.print("회원 주소\t\t: ");
-		String addr = input.next();
-		System.out.print("회원 id\t\t: ");
-		String id = input.next();
-		System.out.print("회원 pwd\t\t: ");
-		String pwd = input.next();
-		
-		int result = dao.m_add(id, pwd, name, phone, addr);
-		if(result == 1) {
-			System.out.println("[회원추가 성공]");
-		}else {
-			System.out.println("[회원추가 실패]");
-		}
+		SignUpServiceImpl sign = new SignUpServiceImpl();
+		sign.signUp();
 	}
 
 	@Override
