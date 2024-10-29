@@ -9,8 +9,16 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
     Scanner input = new Scanner(System.in);
     int num;
     UpdateDeleteDAO dao = new UpdateDeleteDAO();
+    
+    public MyPage_ServiceImp() {
+    	dao = new UpdateDeleteDAO();
+    }
+    
+    public MyPage_ServiceImp(String uid) {
+    	dao = new UpdateDeleteDAO();
+    }
 
-    public void UpdateDelete() {
+    public void UpdateDelete(String uid) {
         while (true) {
             System.out.println("1. 장바구니");
             System.out.println("2. 구매내역");
@@ -29,9 +37,9 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
                     input.nextLine();
 
                     if (choice == 1) {
-                        update(); // 회원정보 수정
+                        update(uid); // 회원정보 수정
                     } else if (choice == 2) {
-                        delete(); // 회원정보 탈퇴
+                        delete(uid); // 회원정보 탈퇴
                     }
                     break;
                 default:
@@ -42,9 +50,9 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
     }
 
     // 회원정보 수정
-    public void update() {
-        System.out.println("현재 아이디 입력: ");
-        String id = input.nextLine();//아이디는 고정, 변경 x
+    public void update(String uid) {
+        System.out.println("현재 아이디 : " + uid);
+        //아이디는 고정, 변경 x
         System.out.println("새 비밀번호 입력: ");
         String pwd = input.nextLine();
         System.out.println("이름 입력: ");
@@ -54,7 +62,7 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
         System.out.println("주소 입력: ");
         String addr = input.nextLine();
 
-        int result = dao.update(id, pwd, name, phone, addr);
+        int result = dao.update(uid, pwd, name, phone, addr);
         if (result > 0) {
             System.out.println("회원정보가 수정되었습니다.");
         } else {
@@ -63,15 +71,17 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
     }
 
     // 회원탈퇴
-    public void delete() {
-        System.out.println("탈퇴할 아이디 입력: ");
+    public void delete(String uid) {
+        System.out.println("탈퇴할 아이디 입력: "); //pw입력+확인
         String id = input.nextLine();
 
-        int result = dao.delete(id);
+        int result = dao.delete(uid);
         if (result > 0) {
             System.out.println("회원탈퇴가 완료되었습니다.");
         } else {
             System.out.println("회원탈퇴 실패.");
         }
     }
+
+	
 }
