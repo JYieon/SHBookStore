@@ -1,4 +1,4 @@
-package 이유나;
+package 이유나.이유나_DB_Service;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -40,14 +40,14 @@ public class BookServiceImpl implements BookService {
 			BookDTO b2 = books.get(booknum);
 			switch (num) {
 			case 1 :
-				System.out.println("장바구니");
+				System.out.println("장바구니로 이동하였습니다.");
 				dao.cart(b2);
 				break;
 			case 2 :
-				System.out.println("결제가 완료되었습니다");
+				System.out.println("결제가 완료되었습니다.");
 				break;
 			case 3 :
-				System.out.println("구매 취소");
+				System.out.println("구매가 취소되었습니다.");
 				break;
 			}
           
