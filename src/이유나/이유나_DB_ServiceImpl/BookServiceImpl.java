@@ -43,7 +43,7 @@ public class BookServiceImpl implements BookService {
 				dao.cart(b2);
 				break;
 			case 2 :
-				System.out.println("결제가 완료되었습니다.");
+				System.out.println("결제가 완료되었습니다");
 				break;
 			case 3 :
 				System.out.println("구매 취소");
