@@ -26,36 +26,14 @@ public class MainClass {
 		String n = null; // m_id값
 		LoginService lo = new LoginServiceImpl();
 		MemberDTO d = null; // 해당 아이디의 member 전체 값
-<<<<<<< HEAD
+		SignUpService su = new SignUpServiceImpl();
+		AdminService am = new AdminServiceImpl();
 		BookServiceImpl book = new BookServiceImpl();
 		SearchServiceImpl a = new SearchServiceImpl();
+		Basket_ServiceImp b = new Basket_ServiceImp();
 		boolean bool = true;
 		
 		while(bool) {
-//			System.out.println("1. 로그인"); //정성호
-//			System.out.println("2. 회원가입"); //최지연
-//			System.out.println("3. 도서 구매"); //이유나
-//			System.out.println("4. 마이페이지"); //김수지, 전영민 	
-//			System.out.println("5. 서비스 종료"); //최지연
-//			System.out.print(">>> ");
-//			num = input.nextInt();
-			if(d == null) {
-				System.out.println("1. 로그인"); //정성호
-				System.out.println("2. 회원가입"); //최지연
-				System.out.println("3. 서비스 종료");
-				System.out.print(">>> ");
-				num = input.nextInt();
-				switch(num){
-=======
-		Basket_ServiceImp b = new Basket_ServiceImp();
-		while(true) {
-			SignUpService su = new SignUpServiceImpl();
-			AdminService am = new AdminServiceImpl();
->>>>>>> 90c588141519540d1ee4aa6febf22b42bd744b17
-
-			BookServiceImpl book = new BookServiceImpl();
-			boolean bool = true;
-			while(bool) {
 				//			System.out.println("1. 로그인"); //정성호
 				//			System.out.println("2. 회원가입"); //최지연
 				//			System.out.println("3. 도서 구매"); //이유나
@@ -85,52 +63,16 @@ public class MainClass {
 						System.out.println("[서비스를 종료합니다]");
 						break;
 					}
-<<<<<<< HEAD
-					break;
-				case 6: // 회원 삭제
-					am.memberdelete();
-					break;
-				case 7: // 종료
-					bool = false;
-					System.out.println("[서비스를 종료합니다]");
-					break;
-					}
-			}else {
-				System.out.println("1. 로그아웃"); //정성호
-				System.out.println("2. 도서 구매"); //이유나
-				System.out.println("3. 마이페이지"); //김수지, 전영민 	
-				System.out.println("4. 책검색"); 
-				System.out.println("5. 서비스 종료"); //최지연
-				System.out.print(">>> ");
-				num = input.nextInt();
-				switch(num){
-				case 1: // 로그아웃
-//					n = lo.logout();
-					d = lo.logout();
-					break;
-				case 2: 
-					book.display();
-					//도서구매
-					
-					break;
-				case 3: //마이페이지
-					MyPage_ServiceImp myPageService = new MyPage_ServiceImp(d.getM_id()); //수정,탈퇴
-					myPageService.UpdateDelete(d.getM_id());
-					break;
-				case 4: 
-					a.search();
-					break;
-				case 5:// 종료
-					return;
-=======
-				}else if(d.getM_id().equals("admin")) {
+
+			}else if(d.getM_id().equals("admin")) {
 					am.adminstart();
 					d = lo.logout();
 				}else {
 					System.out.println("1. 로그아웃"); //정성호
 					System.out.println("2. 도서 구매"); //이유나
-					System.out.println("3. 마이페이지"); //김수지, 전영민 	
-					System.out.println("4. 서비스 종료"); //최지연
+					System.out.println("3. 마이페이지"); //김수지, 전영민
+					System.out.println("4. 도서 검색");
+					System.out.println("5. 서비스 종료"); //최지연
 					System.out.print(">>> ");
 					num = input.nextInt();
 					switch(num){
@@ -138,6 +80,7 @@ public class MainClass {
 						//					n = lo.logout();
 						d = lo.logout();
 						break;
+					
 					case 2: 
 						book.display(d.getM_id());
 						//도서구매
@@ -149,19 +92,14 @@ public class MainClass {
 						MyPage_ServiceImp myPageService = new MyPage_ServiceImp(d.getM_id()); //수정,탈퇴
 						myPageService.UpdateDelete(d.getM_id());
 						break;
-					case 4: // 종료
-
-
+					case 4: 
+						a.search();
+						break;
+					case 5 :
 						return;
 					}
->>>>>>> 90c588141519540d1ee4aa6febf22b42bd744b17
+
 				}
 			}
 		}
 	}
-		private static void Basket_ServiceImp() {
-			// TODO Auto-generated method stub
-
-		}
-	}
-	//dto에서 db데이터를 저장시킨 객체를 
