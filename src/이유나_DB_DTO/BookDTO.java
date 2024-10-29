@@ -1,4 +1,4 @@
-package 이유나;
+package 이유나_DB_DTO;
 
 public class BookDTO {
   private String author, name, publisher, category,m_id;
