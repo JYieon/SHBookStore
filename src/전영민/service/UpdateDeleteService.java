@@ -4,5 +4,6 @@ import 정성호.member_dto.MemberDTO;
 
 public interface UpdateDeleteService {
 	public void update(MemberDTO d);
-	public void delete(MemberDTO d);
+	public int delete(MemberDTO d);
+	public MemberDTO UpdateDelete(MemberDTO d);
 }

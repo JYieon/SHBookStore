@@ -116,7 +116,7 @@ public class MainClass {
                
                break;
             case 3: //마이페이지
-               myPageService.UpdateDelete(d);
+               d = myPageService.UpdateDelete(d);
                break;
             case 4: // 종료
                return;
