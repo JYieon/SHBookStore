@@ -88,8 +88,8 @@ public class AdminServiceImpl implements AdminService{
 				name = u_dto.getM_name();
 			}
 			System.out.print("회원 전화번호(-제외)\t: "); //동일한 전화번호 가입못하도록 할 것
-			Long phone = input.nextLong();
-			if(phone == 0) {
+			String phone = input.next();
+			if(phone == null) {
 				phone = u_dto.getM_phone();
 			}
 			System.out.print("회원 주소\t\t: ");

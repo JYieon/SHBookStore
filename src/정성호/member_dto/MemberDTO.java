@@ -1,8 +1,7 @@
 package 정성호.member_dto;
 
 public class MemberDTO {
-	private String m_id,m_pwd,m_name,m_addr;
-	private Long m_phone;
+	private String m_id,m_pwd,m_name,m_addr,m_phone;
 	
 	public MemberDTO() {
 		
@@ -43,11 +42,11 @@ public class MemberDTO {
 		this.m_addr = m_addr;
 	}
 
-	public Long getM_phone() {
+	public String getM_phone() {
 		return m_phone;
 	}
 
-	public void setM_phone(Long m_phone) {
+	public void setM_phone(String m_phone) {
 		this.m_phone = m_phone;
 	}
 	

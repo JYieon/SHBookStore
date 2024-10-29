@@ -18,40 +18,17 @@ public class Basket_ServiceImp implements Basket_Service{
 	}
 	
 	public void display(String id) {
-		while(true) {
-			System.out.println("1. 장바구니 확인");
-			System.out.println("2. 구매내역 확인");
-			System.out.println("3. 내 정보 수정");
-			System.out.println("4. 회원 탈퇴");
-			System.out.println("5. 뒤로 가기");
-			num = input.nextInt();
-			
-			switch(num) {
-			case 1 : 
-				ArrayList<Basket_DTO> list = dao.BasketList(id);
-				System.out.println("회원 id\t책 id\t책 이름\t\t\t책 가격\t책 개수");
-				if(list != null && !list.isEmpty()) {
-					for(Basket_DTO bk : list) {
-						System.out.println(bk.getKm_id()+"\t"+bk.getKb_id()+"\t"+bk.getK_name()+"\t\t"+
-											bk.getK_price()+"\t"+bk.getK_count()+"\t");
-					}
-					basket_delete(id);
-				}
-				break; 
-			case 2 : 
-				bs.play(id);
-				break; 
-			case 3 : 
-				
-				break; 
-			case 4 : 
-				
-				break; 
-			case 5 :
-				return;
+		ArrayList<Basket_DTO> list = dao.BasketList(id);
+		System.out.println("회원 id\t책 id\t책 이름\t\t\t책 가격\t책 개수");
+		if(list != null && !list.isEmpty()) {
+			for(Basket_DTO bk : list) {
+				System.out.println(bk.getKm_id()+"\t"+bk.getKb_id()+"\t"+bk.getK_name()+"\t\t"+
+									bk.getK_price()+"\t"+bk.getK_count()+"\t");
 			}
+			basket_delete(id);
 		}
 	}
+	
 	public void basket_delete(String id) {
 		
 		System.out.println("1번 구매 하기");

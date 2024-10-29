@@ -3,10 +3,12 @@ package 이유나.이유나_DB_DTO;
 public class SearchDTO {
 
 	private String author, name, publisher, category;
+	private int price, b_id;
 	
 	public SearchDTO() {}
 	public SearchDTO(String author, String name, String publisher, String category) {
 		this.author = author; this.category = category; this.name = name; this.publisher = publisher;
+		this.b_id = b_id; this.price = price;
 	}
 	public String getAuthor() {
 		return author;

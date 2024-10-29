@@ -2,7 +2,8 @@ package common;
 
 import java.util.Scanner;
 
-import 김수지.DB_SERVICE.MyPage_ServiceImp;//전영민
+import 김수지.DB_SERVICE.*;//전영민
+import 이유나.이유나_DB_Service.BookServiceImpl;
 import common.DBConnect;
 
 import 이유나.이유나_DB_Service.*;
@@ -14,6 +15,7 @@ import 정성호.login_service.LoginServiceImpl;
 import 정성호.member_dto.MemberDTO;
 import 최지연.service.SignUpService;
 import 최지연.service.SignUpServiceImpl;
+
 
 public class MainClass {
    public static MemberDTO d = null; // 해당 아이디의 member 전체 값
@@ -45,7 +47,6 @@ public class MainClass {
             case 2: //회원가입
                su.signUp();
                break;
-
             case 3: //도서구매
                bool = false;
                System.out.println("[서비스를 종료합니다]");
@@ -69,8 +70,8 @@ public class MainClass {
                //도서구매
                break;
             case 3: //마이페이지
-               myPageService.UpdateDelete(d.getM_id());
-               break;
+            	myPageService.UpdateDelete(d);
+                break;
             case 4: // 종료
                return;
             }

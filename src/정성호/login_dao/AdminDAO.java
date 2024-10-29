@@ -15,7 +15,7 @@ public class AdminDAO {
 	public AdminDAO() {
 		con = DBConnect.getConnect();
 	}
-	public int m_add(String id, String pwd, String name, int phone, String addr) {
+	public int m_add(String id, String pwd, String name, String phone, String addr) {
 		int result=0;
 		String sql = "insert into member values(?, ?, ?, ?, ?)";
 		try {
@@ -24,7 +24,7 @@ public class AdminDAO {
 			ps.setString(2, pwd);
 			ps.setString(3, name);
 			ps.setString(4, addr);
-			ps.setInt(5, phone);
+			ps.setString(5, phone);
 			result = ps.executeUpdate();
 			
 		} catch (Exception e) {
@@ -33,13 +33,13 @@ public class AdminDAO {
 		}
 		return result;
 	}
-	public int m_update(String id, String pwd, String name, Long phone, String addr) {
+	public int m_update(String id, String pwd, String name, String phone, String addr) {
 		String sql = "update member set m_name = ?, m_phone = ?, m_addr = ?, m_pwd = ? where m_id = ?";
 		int result = 0;
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, name);
-			ps.setLong(2, phone);
+			ps.setString(2, phone);
 			ps.setString(3, addr);
 			ps.setString(4, pwd);
 			ps.setString(5, id);
@@ -63,7 +63,7 @@ public class AdminDAO {
 				dto.setM_name(rs.getString("m_name"));
 				dto.setM_pwd(rs.getString("m_pwd"));
 				dto.setM_addr(rs.getString("m_addr"));
-				dto.setM_phone(rs.getLong("m_phone"));
+				dto.setM_phone(rs.getString("m_phone"));
 				list.add(dto);
 			}
 		} catch (Exception e) {
@@ -86,7 +86,7 @@ public class AdminDAO {
 				dto.setM_name(rs.getString("m_name"));
 				dto.setM_pwd(rs.getString("m_pwd"));
 				dto.setM_addr(rs.getString("m_addr"));
-				dto.setM_phone(rs.getLong("m_phone"));
+				dto.setM_phone(rs.getString("m_phone"));
 			}else {
 				System.err.println("해당 아이디가 없습니다.");
 			}

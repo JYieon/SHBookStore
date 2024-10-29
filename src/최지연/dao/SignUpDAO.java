@@ -18,7 +18,7 @@ public class SignUpDAO {
 		con = DBConnect.getConnect();
 	}
 	
-	public int insert(String id, String pwd, String name, Long phone, String addr) {
+	public int insert(String id, String pwd, String name, String phone, String addr) {
 	    String sql = "insert into member values(?, ?, ?, ?, ?)";
 	    int result = 0;
 	    try {
@@ -27,24 +27,22 @@ public class SignUpDAO {
 	        ps.setString(2, pwd);
 	        ps.setString(3, name);
 	        ps.setString(4, addr);
-	        ps.setLong(5, phone); // 전화번호를 Long 타입으로 설정
+	        ps.setString(5, phone); // 전화번호를 Long 타입으로 설정
 	        result = ps.executeUpdate();
 	    } catch (Exception e) {
 	    	System.out.println("이미 사용중인 아이디입니다");
-	        e.printStackTrace();
 	    }
 	    return result;
 	}
 
 	
-	public boolean phoneCheck(Long phone) {
+	public boolean phoneCheck(String phone) {
 		dto = new MemberDTO();
 		String sql = "select * from member where m_phone=" + phone;
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			if(rs.next()) { //번호가 이미 존재함
-				dto.setM_addr(rs.getString("m_phone"));
 				return true;
 			}
 		} catch (Exception e) {
