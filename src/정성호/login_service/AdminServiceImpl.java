@@ -15,6 +15,54 @@ public class AdminServiceImpl implements AdminService{
 		dao = new AdminDAO();
 	}
 	
+	
+	@Override
+	public void adminstart() {
+		boolean bool = true;
+		while(bool) {
+			System.out.println("1. 로그아웃"); //정성호
+			System.out.println("2. 회원 추가"); 
+			System.out.println("3. 회원 수정"); 	
+			System.out.println("4. 전체 회원 보기");
+			System.out.println("5. 회원 찾기");
+			System.out.println("6. 회원 삭제");
+			System.out.print(">>> ");
+			int num = input.nextInt();
+			switch(num){
+			case 1: // 로그아웃
+//				n = lo.logout();
+				System.out.println("[관리자 로그아웃 하셨습니다]");
+				return;
+			case 2: //회원 추가
+				memberadd();
+				break;
+			case 3: //회원 수정
+				memberupdate();
+				break;
+			case 4: // 전체 회원 보기
+				allmember();
+				break;
+			case 5: // 회원 찾기
+				MemberDTO m = new MemberDTO();
+				m = membersearch();
+				if(m != null) {
+				System.out.println("이름 : " + m.getM_name());
+				System.out.println("전화번호 : " + m.getM_phone());
+				System.out.println("주소 : " + m.getM_addr());
+				System.out.println("id : " + m.getM_id());
+				System.out.println("pwd : " + m.getM_pwd());
+				}else {
+					
+				}
+				break;
+			case 6: // 회원 삭제
+				memberdelete();
+				break;
+				}
+		}
+	}
+
+
 	@Override
 	public MemberDTO logout() {
 		System.out.println("관리자 로그아웃 하셨습니다.");

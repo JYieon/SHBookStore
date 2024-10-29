@@ -40,6 +40,7 @@ public class SignUpServiceImpl implements SignUpService{
 			System.out.println("이미 계정이 있는 번호입니다");
 		}else {
 			System.out.print("회원 주소\t\t: ");
+			input.nextLine(); //엔터값 지우기
 			addr = input.nextLine();
 			System.out.print("회원 id\t\t: ");
 			id = input.next();
