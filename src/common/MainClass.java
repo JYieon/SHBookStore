@@ -3,10 +3,7 @@ package common;
 import java.util.Scanner;
 
 import 김수지.DB_SERVICE.MyPage_ServiceImp;//전영민
-import common.DBConnect;
-
-import 이유나.BookServiceImpl;
-
+import 이유나.이유나_DB_Service.BookServiceImpl;
 import 정성호.login_service.AdminService;
 import 정성호.login_service.AdminServiceImpl;
 import 정성호.login_service.LoginService;
