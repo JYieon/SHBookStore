@@ -4,6 +4,8 @@ import java.lang.reflect.Member;
 import java.sql.Connection;
 import java.util.Scanner;
 import common.DBConnect;
+import 김수지.DB_DTO.Basket_DTO;
+import 김수지.DB_SERVICE.Basket_ServiceImp;
 import 정성호.login_service.LoginService;
 import 정성호.login_service.LoginServiceImpl;
 import 정성호.member_dto.MemberDTO;
@@ -15,6 +17,7 @@ public class MainClass {
 		String n = null; // m_id값
 		LoginService lo = new LoginServiceImpl();
 		MemberDTO d = null; // 해당 아이디의 member 전체 값
+		Basket_ServiceImp b = new Basket_ServiceImp();
 		while(true) {
 //			System.out.println("1. 로그인"); //정성호
 //			System.out.println("2. 회원가입"); //최지연
@@ -55,12 +58,21 @@ public class MainClass {
 				case 2: //도서구매
 					break;
 				case 3: //마이페이지
+					 b.display(d.getM_id());
+					 
 					break;
 				case 4: // 종료
+					
+					
 					return;
 				}
 			}
 		}
+	}
+
+	private static void Basket_ServiceImp() {
+		// TODO Auto-generated method stub
+		
 	}
 }
 //dto에서 db데이터를 저장시킨 객체를 
