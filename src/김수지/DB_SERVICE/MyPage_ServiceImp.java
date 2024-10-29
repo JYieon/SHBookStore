@@ -72,9 +72,6 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 
     // 회원탈퇴
     public void delete(String uid) {
-        System.out.println("탈퇴할 아이디 입력: "); //pw입력+확인
-        String id = input.nextLine();
-
         int result = dao.delete(uid);
         if (result > 0) {
             System.out.println("회원탈퇴가 완료되었습니다.");
