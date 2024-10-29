@@ -3,22 +3,21 @@ package 김수지.DB_SERVICE;
 import java.util.Scanner;
 
 import 전영민.dao.UpdateDeleteDAO;
+import 전영민.dto.UpdateDeleteDTO;
 import 전영민.service.UpdateDeleteService;
+import 정성호.member_dto.MemberDTO;
 
 public class MyPage_ServiceImp implements UpdateDeleteService {
 	Scanner input = new Scanner(System.in);
 	int num;
 	UpdateDeleteDAO dao = new UpdateDeleteDAO();
-
+	MemberDTO dto = new MemberDTO();
 	public MyPage_ServiceImp() {
 		dao = new UpdateDeleteDAO();
 	}
 
-	public MyPage_ServiceImp(String uid) {
-		dao = new UpdateDeleteDAO();
-	}
 
-	public void UpdateDelete(String uid) {
+	public void UpdateDelete(MemberDTO d) {
 		while (true) {
 			System.out.println("1. 장바구니");
 			System.out.println("2. 구매내역");
@@ -37,9 +36,9 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 				input.nextLine();
 
 				if (choice == 1) {
-					update(uid); // 회원정보 수정
+					update(d); // 회원정보 수정
 				} else if (choice == 2) {
-					delete(uid); // 회원 탈퇴
+					delete(d); // 회원 탈퇴
 				}
 				break;
 			default:
@@ -50,11 +49,14 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 	}
 
 	// 회원정보 수정
-	public void update(String uid) {
-		System.out.println("현재 아이디 : " + uid);
+	public void update(MemberDTO d) {
+		System.out.println("현재 아이디 : " + d.getM_id());
 		// 아이디는 고정, 변경 x
-		String pwd = null, name = null, phone = null, addr = null;
-
+		String pwd = null, name = null,  addr = null, pwd2 = null;
+		Long phone ;
+		
+		
+		
 		while (true) {
 			System.out.println("수정할 항목을 선택하세요.");
 			System.out.println("1. 비밀번호");
@@ -62,6 +64,7 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 			System.out.println("3. 전화번호");
 			System.out.println("4. 주소");
 			System.out.println("5. 수정 완료");
+   
 
 			int num = input.nextInt();
 			input.nextLine();
@@ -69,22 +72,37 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 			switch (num) {
 			case 1:
 				System.out.println("새 비밀번호 입력: ");
-				pwd = input.nextLine();
+				pwd = input.next();
+				System.out.println("비밀번호 확인   : ");
+				pwd2 = input.next();
+				if(pwd.equals(pwd2)) {
+					System.out.println("비밀번호 수정 완료");
+					d.setM_pwd(pwd);
+				}else {
+					System.out.println("비밀번호 확인 실패");
+				}
+				
 				break;
 			case 2:
+				System.out.println("기존 이름 : " + d.getM_name() );
 				System.out.println("이름 입력: ");
 				name = input.nextLine();
+				d.setM_name(name);
 				break;
 			case 3:
+				System.out.println("기존 전화번호 : " + d.getM_phone());
 				System.out.println("전화번호 입력: ");
-				phone = input.nextLine();
+				phone = input.nextLong();
+				d.setM_phone(phone);
 				break;
 			case 4:
+				System.out.println("기존 주소 : " + d.getM_addr());
 				System.out.println("주소 입력: ");
 				addr = input.nextLine();
+				d.setM_addr(addr);
 				break;
 			case 5:
-				int result = dao.update(uid, pwd, name, phone, addr);
+				int result = dao.update(d);
 				if (result > 0) {
 					System.out.println("회원정보가 수정되었습니다.");
 				} else {
@@ -99,11 +117,11 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 	}
 
 	// 회원탈퇴
-	public void delete(String uid) {
-		System.out.println("탈퇴할 아이디 입력: "); // pw입력+확인
+	public void delete(MemberDTO d) {
+		System.out.println("비밀번호 입력: "); // pw입력+확인
 		String id = input.nextLine();
 
-		int result = dao.delete(uid);
+		int result = dao.delete(d.getM_pwd());
 		if (result > 0) {
 			System.out.println("회원탈퇴가 완료되었습니다.");
 		} else {

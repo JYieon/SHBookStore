@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 
 import common.DBConnect;
 import 전영민.dto.UpdateDeleteDTO;
+import 정성호.member_dto.MemberDTO;
 
 public class UpdateDeleteDAO {
 	Connection con;
@@ -16,7 +17,7 @@ public class UpdateDeleteDAO {
 		con = DBConnect.getConnect();
 	}
 
-	public int update(UpdateDeleteDTO ud) {
+	public int update(MemberDTO ud) {
 		String sql = "UPDATE member SET m_pwd = ?, m_name = ?, m_addr = ?, m_phone = ? WHERE m_id = ?";
 		int result = 0;
 
@@ -25,7 +26,7 @@ public class UpdateDeleteDAO {
 			ps.setString(1, ud.getM_pwd());
 			ps.setString(2, ud.getM_name());
 			ps.setString(3, ud.getM_addr());
-			ps.setString(4, ud.getM_phone());
+			ps.setLong(4, ud.getM_phone());
 			ps.setString(5, ud.getM_id());
 			result = ps.executeUpdate();
 
