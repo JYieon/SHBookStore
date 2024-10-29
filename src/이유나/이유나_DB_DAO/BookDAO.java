@@ -1,4 +1,4 @@
-package 이유나;
+package 이유나.이유나_DB_DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import common.DBConnect;
-import 이유나.BookDTO;
+import 이유나.이유나_DB_DTO.*;
 
 public class BookDAO {
 	Connection con;
@@ -53,7 +53,7 @@ public class BookDAO {
     	try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			
-			ps.setString(1, b2.getM_id() );
+			ps.setString(1, b2.getM_id());
 			ps.setInt(2, b2.getB_id());
 			ps.setString(3, b2.getName());
 			ps.setInt(4, b2.getPrice());

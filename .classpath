@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-<<<<<<< HEAD
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
 	<classpathentry kind="lib" path="D:/LYN/sqldeveloper/jdbc/lib/ojdbc11.jar">
-=======
-	<classpathentry kind="lib" path="C:/0.핀테크/java/ojdbc8.jar">
->>>>>>> ad5cc9afeab3a7a4af715829c01109b4a1e97314
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
