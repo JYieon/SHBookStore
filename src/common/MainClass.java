@@ -26,6 +26,7 @@ public class MainClass {
 		SignUpService su = new SignUpServiceImpl();
 		AdminService am = new AdminServiceImpl();
 		MemberDTO d = null; // 해당 아이디의 member 전체 값
+		BookServiceImpl book = new BookServiceImpl();
 		boolean bool = true;
 		
 		while(bool) {
@@ -114,7 +115,10 @@ public class MainClass {
 //					n = lo.logout();
 					d = lo.logout();
 					break;
-				case 2: //도서구매
+				case 2: 
+					book.display();
+					//도서구매
+					
 					break;
 				case 3: //마이페이지
 					break;

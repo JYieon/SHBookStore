@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="src" path="src"/>
-<<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/LYN/sqldeveloper/jdbc/lib/ojdbc11.jar">
-=======
-	<classpathentry kind="lib" path="E:/Choi/oracle/ojdbc8.jar">
->>>>>>> 4a905f3a30ee08178e27600932a6b2f294aeffa5
-=======
-	<classpathentry kind="lib" path="E:/Choi/oracle/ojdbc8.jar">
->>>>>>> parent of 0198762 (buybook)
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

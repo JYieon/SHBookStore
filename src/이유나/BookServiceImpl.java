@@ -18,30 +18,44 @@ public class BookServiceImpl implements BookService {
 		Scanner input = new Scanner(System.in);
 		int num;
 		while(true) {
-			System.out.println("----- 도서 구매 -----");
-			System.out.println("1. 도서 목록");
-			System.out.println("2. 구매 종료");
-			System.out.println(" >>>>> ");
+			System.out.println("--- 구매 가능한 도서 목록 ---");
+			ArrayList<BookDTO> books = new ArrayList<BookDTO>();
+			books = dao.getList();
+			System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
+			for(BookDTO b : books) {
+				
+				System.out.printf("%-10d %-30s %20s %20s %10d%n", 
+                        b.getB_id(), 
+                        b.getName(), 
+                        b.getAuthor(), 
+                        b.getPublisher(), 
+                        b.getPrice());
+			}
+			System.out.println("책 번호");
+			int booknum = input.nextInt();
+			System.out.println("1. 장바구니 2. 바로구매");
 			num = input.nextInt();
 			
+			BookDTO b2 = books.get(booknum);
 			switch (num) {
 			case 1 :
-				System.out.println("--- 구매 가능한 도서 목록 ---");
-				ArrayList<BookDTO> books = new ArrayList<BookDTO>();
-				books = dao.getList();
-				System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
-				for(BookDTO b : books) {
-					
-					System.out.printf("%-10d %-30s %20s %20s %10d%n", 
-                            b.getId(), 
-                            b.getName(), 
-                            b.getAuthor(), 
-                            b.getPublisher(), 
-                            b.getPrice());
-					
-					
-				}
+				System.out.println("장바구니");
+				dao.cart(b2);
+				break;
+			case 2 :
+				System.out.println("결제가 완료되었습니다.");
+				break;
+			case 3 :
+				System.out.println("구매 취소");
+				break;
 			}
-		}
+          
+        }
+
+        
+			
+		
+			
+		
 	}
 }
