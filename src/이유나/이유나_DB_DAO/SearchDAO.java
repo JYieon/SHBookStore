@@ -1,4 +1,4 @@
-package 최지연.dao;
+package 이유나.이유나_DB_DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
