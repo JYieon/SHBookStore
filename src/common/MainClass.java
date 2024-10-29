@@ -26,6 +26,7 @@ public class MainClass {
 		AdminService am = new AdminServiceImpl();
 		MemberDTO d = null; // 해당 아이디의 member 전체 값
 		BookServiceImpl book = new BookServiceImpl();
+		SearchServiceImpl a = new SearchServiceImpl();
 		boolean bool = true;
 		
 		while(bool) {
@@ -107,7 +108,8 @@ public class MainClass {
 				System.out.println("1. 로그아웃"); //정성호
 				System.out.println("2. 도서 구매"); //이유나
 				System.out.println("3. 마이페이지"); //김수지, 전영민 	
-				System.out.println("4. 서비스 종료"); //최지연
+				System.out.println("4. 책검색"); 
+				System.out.println("5. 서비스 종료"); //최지연
 				System.out.print(">>> ");
 				num = input.nextInt();
 				switch(num){
@@ -124,7 +126,10 @@ public class MainClass {
 					MyPage_ServiceImp myPageService = new MyPage_ServiceImp(d.getM_id()); //수정,탈퇴
 					myPageService.UpdateDelete(d.getM_id());
 					break;
-				case 4: // 종료
+				case 4: 
+					a.search();
+					break;
+				case 5:// 종료
 					return;
 				}
 			}
