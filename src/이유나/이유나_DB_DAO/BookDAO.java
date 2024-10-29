@@ -8,6 +8,7 @@ import java.util.List;
 
 import common.DBConnect;
 import 이유나.이유나_DB_DTO.*;
+import 정성호.member_dto.MemberDTO;
 
 public class BookDAO {
 	Connection con;
@@ -32,7 +33,6 @@ public class BookDAO {
 				book.setName(rs.getString("b_name"));
 				book.setAuthor(rs.getString("b_author")) ;
 				book.setPublisher(rs.getString("b_publisher"));
-				book.setCategory(rs.getString("b_category"));
 				book.setPrice(rs.getInt("b_price"));
 				
 				books.add(book);
@@ -46,27 +46,45 @@ public class BookDAO {
     		
     	
     }
-    public int cart(BookDTO b2 ) {
+    public int cart(BookDTO b2,int b_count,String u_id) {
     	int result =0;
-    	String sql = "insert into basket values(?, ?, ?, ?, ?, ?)";
+    	String sql = "insert into basket values(?, ?, ?, ?, ?)";
     	
     	try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			
-			ps.setString(1, b2.getM_id());
+			ps.setString(1,u_id);
 			ps.setInt(2, b2.getB_id());
 			ps.setString(3, b2.getName());
 			ps.setInt(4, b2.getPrice());
-			ps.setInt(5, b2.getCount());
-			ps.setInt(6, b2.getTotal());
+			ps.setInt(5, b_count);
 			result = ps.executeUpdate();
 			
 		} catch (Exception e) {
-			System.out.println("동일한 아이디가 존재합니다");
 			e.printStackTrace();
 		}
 		return result;
     }
+    public int buy(BookDTO b2,int b_count,String u_id) {
+    	int result =0;
+    	String sql = "insert into buylist values(buylist_SEQ.nextval,?, ?, ?, ?, ?,?,sysdate)";
+    	
+    	try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setString(1,u_id);
+			ps.setInt(2, b2.getB_id());
+			ps.setString(3, b2.getName());
+			ps.setInt(4, b2.getPrice());
+			ps.setInt(5, b_count);
+			ps.setInt(6, b_count * b2.getPrice());
+			result = ps.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	return result;
+    } 
 }
 
 

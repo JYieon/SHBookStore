@@ -16,6 +16,7 @@ import 최지연.service.SignUpService;
 import 최지연.service.SignUpServiceImpl;
 
 public class MainClass {
+	public static MemberDTO d = null; // 해당 아이디의 member 전체 값
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int num;
@@ -24,10 +25,9 @@ public class MainClass {
 		LoginService lo = new LoginServiceImpl();
 		SignUpService su = new SignUpServiceImpl();
 		AdminService am = new AdminServiceImpl();
-		MemberDTO d = null; // 해당 아이디의 member 전체 값
+		
 		BookServiceImpl book = new BookServiceImpl();
 		boolean bool = true;
-		
 		while(bool) {
 //			System.out.println("1. 로그인"); //정성호
 //			System.out.println("2. 회원가입"); //최지연
@@ -116,7 +116,7 @@ public class MainClass {
 					d = lo.logout();
 					break;
 				case 2: 
-					book.display();
+					book.display(d.getM_id());
 					//도서구매
 					
 					break;
