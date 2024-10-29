@@ -5,9 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
 import common.DBConnect;
-import 이유나.BookDTO;
+import 이유나.이유나_DB_DTO.BookDTO;
 
 public class BookDAO {
 	Connection con;

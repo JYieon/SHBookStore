@@ -18,6 +18,7 @@ public class SearchServiceImpl {
 			System.out.println("책 제목 입력 : ");
 			name = input.next();
 			//searchBook(name);
+			
 			break;
 		case 2:
 			//searchAuthor();
