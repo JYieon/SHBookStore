@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import 최지연.service.*;
 import java.util.Scanner;
 
+import 김수지.DB_DAO.Basket_DAO;
 import 정성호.login_dao.AdminDAO;
 import 정성호.member_dto.MemberDTO;
+import 정성호.login_service.*;
 
 public class AdminServiceImpl implements AdminService{
 	Scanner input = new Scanner(System.in);
 	AdminDAO dao;
+	Basket_DAO dao2 = new Basket_DAO();
+	LoginServiceImpl lo = new LoginServiceImpl();
+	boolean bool = true;
 	
 	public AdminServiceImpl() {
 		dao = new AdminDAO();
@@ -18,7 +23,6 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Override
 	public void adminstart() {
-		boolean bool = true;
 		while(bool) {
 			System.out.println("1. 로그아웃"); //정성호
 			System.out.println("2. 회원 추가"); 
@@ -30,9 +34,10 @@ public class AdminServiceImpl implements AdminService{
 			int num = input.nextInt();
 			switch(num){
 			case 1: // 로그아웃
-//				n = lo.logout();
+				lo.logout();
 				System.out.println("[관리자 로그아웃 하셨습니다]");
-				return;
+				bool = false;
+				break;
 			case 2: //회원 추가
 				memberadd();
 				break;
@@ -146,6 +151,7 @@ public class AdminServiceImpl implements AdminService{
 			System.out.println("해당 아이디가 없습니다.");
 		}else {
 			System.out.println(id +"삭제 완료");
+			dao2.delete(id);
 		}
 	}
 	

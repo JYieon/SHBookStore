@@ -54,6 +54,7 @@ public class MainClass {
             }
          }else if(d.getM_id().equals("admin")) {
             am.adminstart();
+            
          }else {
             System.out.println("1. 로그아웃"); //정성호
             System.out.println("2. 도서 구매"); //이유나
@@ -70,8 +71,8 @@ public class MainClass {
                //도서구매
                break;
             case 3: //마이페이지
-            	myPageService.UpdateDelete(d);
-                break;
+               d = myPageService.UpdateDelete(d);
+               break;
             case 4: // 종료
                return;
             }

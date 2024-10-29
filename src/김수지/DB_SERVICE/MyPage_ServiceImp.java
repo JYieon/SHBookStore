@@ -2,6 +2,7 @@ package 김수지.DB_SERVICE;
 
 import java.util.Scanner;
 
+import 김수지.DB_DAO.Basket_DAO;
 import 전영민.dao.UpdateDeleteDAO;
 import 전영민.dto.UpdateDeleteDTO;
 import 전영민.service.UpdateDeleteService;
@@ -9,6 +10,7 @@ import 김수지.DB_SERVICE.*;
 import 정성호.member_dto.MemberDTO;
 
 public class MyPage_ServiceImp implements UpdateDeleteService {
+	Basket_DAO dao2 = new Basket_DAO();
 	Scanner input = new Scanner(System.in);
 	int num;
 	UpdateDeleteDAO dao = new UpdateDeleteDAO();
@@ -21,11 +23,14 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 	}
 
 
-	public void UpdateDelete(MemberDTO d) {
-		while (true) {
+	public MemberDTO UpdateDelete(MemberDTO d) {
+		int a =0;
+		MemberDTO d1 = d;
+		while (a==0) {
 			System.out.println("1. 장바구니");
 			System.out.println("2. 구매내역");
 			System.out.println("3. 회원정보 수정 및 탈퇴");
+			System.out.println("4. 뒤로가기");
 			num = input.nextInt();
 			input.nextLine();
 
@@ -44,14 +49,21 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 				if (choice == 1) {
 					update(d); // 회원정보 수정
 				} else if (choice == 2) {
-					delete(d); // 회원 탈퇴
+					a = delete(d); // 회원 탈퇴
+				}
+				if(a!=0) {
+					d1 =null;
+					return d1;
 				}
 				break;
 			default:
 				System.out.println("올바른 번호를 입력하세요.");
 				break;
+			case 4:
+				return d1;
 			}
 		}
+		return d1;
 	}
 
 	// 회원정보 수정
@@ -119,16 +131,22 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 	}
 
 	// 회원탈퇴
-	public void delete(MemberDTO d) {
+	public int delete(MemberDTO d) {
+		int result =0;
 		System.out.println("비밀번호 입력: "); // pw입력+확인
-		String id = input.nextLine();
-
-		int result = dao.delete(d.getM_pwd());
-		if (result > 0) {
-			System.out.println("회원탈퇴가 완료되었습니다.");
-		} else {
-			System.out.println("회원탈퇴 실패.");
+		String pwd = input.nextLine();
+		if(d.getM_pwd() == pwd ) {
+			result = dao.delete(d.getM_id());
+			if (result > 0) {
+				System.out.println("회원탈퇴가 완료되었습니다.");
+				dao2.delete(d.getM_id());
+			} else {
+				System.out.println("회원탈퇴 실패.");
+			}
+		}else {
+			System.out.println("비밀번호가 틀립니다.");
 		}
+		return result;
 	}
 
 }
