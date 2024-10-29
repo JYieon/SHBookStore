@@ -132,14 +132,17 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 	public int delete(MemberDTO d) {
 		int result =0;
 		System.out.println("비밀번호 입력: "); // pw입력+확인
-		String id = input.nextLine();
-
-		result = dao.delete(d.getM_pwd());
-		if (result > 0) {
-			System.out.println("회원탈퇴가 완료되었습니다.");
-			dao2.delete(d.getM_id());
-		} else {
-			System.out.println("회원탈퇴 실패.");
+		String pwd = input.nextLine();
+		if(d.getM_pwd() == pwd ) {
+			result = dao.delete(d.getM_id());
+			if (result > 0) {
+				System.out.println("회원탈퇴가 완료되었습니다.");
+				dao2.delete(d.getM_id());
+			} else {
+				System.out.println("회원탈퇴 실패.");
+			}
+		}else {
+			System.out.println("비밀번호가 틀립니다.");
 		}
 		return result;
 	}

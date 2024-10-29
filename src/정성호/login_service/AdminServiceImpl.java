@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import 최지연.service.*;
 import java.util.Scanner;
 
+import 김수지.DB_DAO.Basket_DAO;
 import 정성호.login_dao.AdminDAO;
 import 정성호.member_dto.MemberDTO;
 
 public class AdminServiceImpl implements AdminService{
 	Scanner input = new Scanner(System.in);
 	AdminDAO dao;
-	
+	Basket_DAO dao2 = new Basket_DAO();
 	public AdminServiceImpl() {
 		dao = new AdminDAO();
 	}
@@ -146,6 +147,7 @@ public class AdminServiceImpl implements AdminService{
 			System.out.println("해당 아이디가 없습니다.");
 		}else {
 			System.out.println(id +"삭제 완료");
+			dao2.delete(id);
 		}
 	}
 	
