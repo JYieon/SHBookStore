@@ -52,6 +52,41 @@ public class Buy_DAO {
 		}
 		return ls;
 	}
+	
+	public ArrayList<Buy_DTO> allBuyList (){
+		String sql ="select * from BuyList ";
+		ArrayList<Buy_DTO> ls = new ArrayList<Buy_DTO>();
+
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+
+			while(rs.next()){
+				Buy_DTO db = new Buy_DTO();
+
+				db.setL_count(rs.getInt("L_count"));
+
+				db.setL_date(rs.getDate("L_date"));
+
+				db.setL_name(rs.getString("L_name"));
+
+				db.setL_num(rs.getInt("L_num"));
+
+				db.setL_price(rs.getInt("L_price"));
+
+				db.setL_total_price(rs.getInt("L_total_price"));
+
+				db.setLb_id(rs.getInt("Lb_id"));
+
+				db.setLm_id(rs.getString("Lm_id"));
+
+				ls.add(db);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ls;
+	}
 }
 
 
