@@ -49,7 +49,7 @@ public class Basket_ServiceImp implements Basket_Service{
 			int a = 0;
 			a = book_dao.all_buy(id);
 			if(a == 1) {
-				System.out.println("구매 완료 되었습니다.");
+				System.out.println("[구매 완료 되었습니다]");
 				dao.delete(id);
 			}
 			break;

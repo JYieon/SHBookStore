@@ -90,7 +90,6 @@ public class BookDAO {
     } 
     public int all_buy(String u_id) {
     	int result = 0;
-    	System.out.println("장바구니에 있는 ");
     	Basket_DAO dao = new Basket_DAO();
     	ArrayList<Basket_DTO> list = dao.BasketList(u_id);
     	String sql2 = "SELECT COALESCE(MAX(l_num), 0) FROM buylist";
@@ -99,7 +98,6 @@ public class BookDAO {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				jumun = rs.getInt("COALESCE(MAX(l_num),0)");
-				System.out.println(jumun);
 			}
 			
 		} catch (Exception e) {
