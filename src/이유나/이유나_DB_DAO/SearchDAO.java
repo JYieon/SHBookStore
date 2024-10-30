@@ -56,20 +56,9 @@ public class SearchDAO {
 				
 			}
 		} catch (Exception e) {
-			 e.printStackTrace();
+			
 		}
 		return books;
 	}
-	public void searchAuthor(String author) {
-		
-	}
-	public void searchPublisher(String publisher) {
-		
-	}
-	public void searchname(String name) {
-		
-	}
-	public void searchcategory(String category) {
-		
-	}
+
 }
