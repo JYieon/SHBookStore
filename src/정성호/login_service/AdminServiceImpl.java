@@ -22,7 +22,7 @@ public class AdminServiceImpl implements AdminService{
 	
 	
 	@Override
-	public void adminstart() {
+	public MemberDTO adminstart() {
 		while(bool) {
 			System.out.println("1. 로그아웃"); //정성호
 			System.out.println("2. 회원 추가"); 
@@ -65,6 +65,7 @@ public class AdminServiceImpl implements AdminService{
 				break;
 				}
 		}
+		return null;
 	}
 
 
