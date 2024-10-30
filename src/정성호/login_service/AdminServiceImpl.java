@@ -27,8 +27,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public MemberDTO adminstart() {
 		while(bool) {
-			System.out.println("------------------------------------------------");
-			System.out.println("[관리자 메뉴]");
+			System.out.println("------------------------ [관리자 메뉴] -------------------------");
 			System.out.println("1. 로그아웃");
 			System.out.println("2. 회원 추가"); 
 			System.out.println("3. 회원 수정"); 	
@@ -37,23 +36,22 @@ public class AdminServiceImpl implements AdminService{
 			System.out.println("6. 회원 삭제");
 			System.out.println("7. 회원 구매리스트");
 			System.out.print(">>> ");
-			int num = input.nextInt();
+			String num = input.next();
 			switch(num){
-			case 1: // 로그아웃
+			case "1": // 로그아웃
 				lo.logout();
-				System.out.println("[관리자 로그아웃 하셨습니다]");
 				bool = false;
 				break;
-			case 2: //회원 추가
+			case "2": //회원 추가
 				memberadd();
 				break;
-			case 3: //회원 수정
+			case "3": //회원 수정
 				memberupdate();
 				break;
-			case 4: // 전체 회원 보기
+			case "4": // 전체 회원 보기
 				allmember();
 				break;
-			case 5: // 회원 찾기
+			case "5": // 회원 찾기
 				MemberDTO m = new MemberDTO();
 				m = membersearch();
 				if(m != null) {
@@ -66,14 +64,15 @@ public class AdminServiceImpl implements AdminService{
 					
 				}
 				break;
-			case 6: // 회원 삭제
+			case "6": // 회원 삭제
 				memberdelete();
 				break;
-			case 7:
+			case "7":
 				buyli.alllist();
 				break;
-				}
-			
+			default :
+            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
+			}
 		}
 		return null;
 	}
@@ -81,7 +80,7 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public MemberDTO logout() {
-		System.out.println("관리자 로그아웃 하셨습니다.");
+		System.out.println("[관리자 로그아웃 하셨습니다]");
 		return null;
 	}
 
