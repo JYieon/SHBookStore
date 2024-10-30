@@ -39,31 +39,18 @@ public class SearchServiceImpl implements SearchService {
 			
 			ArrayList<BookDTO> sb = new ArrayList<BookDTO>();
 			sb = dao.searchBook(1, name);
-			System.out.printf("%-10s %-20s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
-			for(BookDTO a : sb) {
-				
-				System.out.printf("%-10d %-20s %20s %20s %10d%n", 
-                        a.getB_id(), 
-                        a.getName(), 
-                        a.getAuthor(), 
-                        a.getPublisher(), 
-                        a.getPrice());
-                       
-
-			
 			
 			if (sb.isEmpty()) {
-		        System.out.println("검색 결과가 없습니다.");
+		        System.out.println("[검색 결과가 없습니다]\n");
 		    } else {
-		    	System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
+		    	System.out.printf("%-8s %-40s\t%-10s %-10s %-10s\n", 
+		                "책 id", "책 이름", "작가", "출판사", "가격");
 				for(BookDTO a : sb) {
-					
-					System.out.printf("%-10d %-30s %20s %20s %10d%n", 
-	                        a.getB_id(), 
-	                        a.getName(), 
-	                        a.getAuthor(), 
-	                        a.getPublisher(), 
-	                        a.getPrice());
+					System.out.printf("%-8d %-40s",
+	                          a.getB_id(), a.getName());
+					System.out.print("\t");
+					System.out.printf("%-10s %-10s %-10d%n",
+							a.getAuthor(), a.getPublisher(), a.getPrice());
 				}
 			}
 			
@@ -74,17 +61,16 @@ public class SearchServiceImpl implements SearchService {
 			
 			sb = dao.searchBook(2, name);
 			if (sb.isEmpty()) {
-		        System.out.println("검색 결과가 없습니다.");
-		    } else {
-		    	System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
+				System.out.println("[검색 결과가 없습니다]\n");		    
+			} else {
+		    	System.out.printf("%-8s %-40s\t%-10s %-10s %-10s\n", 
+		                "책 id", "책 이름", "작가", "출판사", "가격");
 				for(BookDTO a : sb) {
-					
-					System.out.printf("%-10d %-30s %20s %20s %10d%n", 
-	                        a.getB_id(), 
-	                        a.getName(), 
-	                        a.getAuthor(), 
-	                        a.getPublisher(), 
-	                        a.getPrice());
+					System.out.printf("%-8d %-40s",
+	                          a.getB_id(), a.getName());
+					System.out.print("\t");
+					System.out.printf("%-10s %-10s %-10d%n",
+							a.getAuthor(), a.getPublisher(), a.getPrice());
 				}
 			}
 			
@@ -95,52 +81,48 @@ public class SearchServiceImpl implements SearchService {
 			
 			sb = dao.searchBook(3, name);
 			if (sb.isEmpty()) {
-		        System.out.println("검색 결과가 없습니다.");
+				System.out.println("[검색 결과가 없습니다]\n");
 		    } else {
-		    	System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
+		    	System.out.printf("%-8s %-40s\t%-10s %-10s %-10s\n", 
+		                "책 id", "책 이름", "작가", "출판사", "가격");
 				for(BookDTO a : sb) {
-					
-					System.out.printf("%-10d %-30s %20s %20s %10d%n", 
-	                        a.getB_id(), 
-	                        a.getName(), 
-	                        a.getAuthor(), 
-	                        a.getPublisher(), 
-	                        a.getPrice());
+					System.out.printf("%-8d %-40s",
+	                          a.getB_id(), a.getName());
+					System.out.print("\t");
+					System.out.printf("%-10s %-10s %-10d%n",
+							a.getAuthor(), a.getPublisher(), a.getPrice());
 				}
-			
-			break;
 			}
+			break; 
+			
 		case "4":
 			System.out.print("카테고리 입력 : ");
 			name = input.next();
 			
 			sb = dao.searchBook(4, name);
 			if (sb.isEmpty()) {
-		        System.out.println("검색 결과가 없습니다.");
+				System.out.println("[검색 결과가 없습니다]\n");
 		    } else {
-		    	System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
+		    	System.out.printf("%-8s %-40s\t%-10s %-10s %-10s\n", 
+		                "책 id", "책 이름", "작가", "출판사", "가격");
 				for(BookDTO a : sb) {
-					
-					System.out.printf("%-10d %-30s %20s %20s %10d%n", 
-	                        a.getB_id(), 
-	                        a.getName(), 
-	                        a.getAuthor(), 
-	                        a.getPublisher(), 
-	                        a.getPrice());
+					System.out.printf("%-8d %-40s",
+	                          a.getB_id(), a.getName());
+					System.out.print("\t");
+					System.out.printf("%-10s %-10s %-10d%n",
+							a.getAuthor(), a.getPublisher(), a.getPrice());
 				}
-			
-                       
 			}
+			
 			break;
 		case "5"://뒤로가기
 			return;
 			
 		default :
-			System.out.println(" 잘못된 입력입니다. 다시 입력해주세요");
-		
+			System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");		
 		}
 	}
 }
-
+}
 	
 

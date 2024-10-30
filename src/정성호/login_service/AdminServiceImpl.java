@@ -71,7 +71,7 @@ public class AdminServiceImpl implements AdminService{
 				buyli.alllist();
 				break;
 			default :
-            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
+            	System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");
 			}
 		}
 		return null;
@@ -80,7 +80,7 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public MemberDTO logout() {
-		System.out.println("[관리자 로그아웃 하셨습니다]");
+		System.out.println("[관리자 로그아웃 하셨습니다]\n");
 		return null;
 	}
 

@@ -32,6 +32,7 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 			System.out.println("2. 구매내역");
 			System.out.println("3. 회원정보 수정 및 탈퇴");
 			System.out.println("4. 뒤로가기");
+			System.out.println(">>> ");
 			num = input.next();
 			input.nextLine();
 
@@ -60,8 +61,7 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 			case "4":
 				return d1;
 			default :
-            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
-			}
+				System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");			}
 		}
 		return d1;
 	}
@@ -125,7 +125,7 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 				}
 				return;
 			default :
-            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
+				System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");			
 			}
 		}
 	}
@@ -135,17 +135,17 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 		int result = 0;
 		System.out.println("------------------------ [회원 탈퇴] -------------------------");
 		System.out.print("비밀번호 입력: "); 
-		String pwd = input.nextLine();
+		String pwd = input.next();
 		if(d.getM_pwd().equals(pwd) ) {
 			result = dao.delete(d.getM_id());
 			if (result > 0) {
-				System.out.println("회원탈퇴가 완료되었습니다.");
+				System.out.println("[회원탈퇴가 완료되었습니다]");
 				dao2.delete(d.getM_id());
 			} else {
-				System.out.println("회원탈퇴 실패.");
+				System.out.println("[회원탈퇴 실패]");
 			}
 		}else {
-			System.out.println("비밀번호가 틀립니다.");
+			System.out.println("[입력 오류 : 비밀번호가 틀립니다]");
 		}
 		return result;
 	}

@@ -28,7 +28,7 @@ public class AdminDAO {
 			result = ps.executeUpdate();
 			
 		} catch (Exception e) {
-			System.out.println("동일한 아이디가 존재합니다");
+			System.out.println("[동일한 아이디가 존재합니다]\n");
 			e.printStackTrace();
 		}
 		return result;
@@ -45,7 +45,7 @@ public class AdminDAO {
 			ps.setString(5, id);
 			result = ps.executeUpdate();
 		} catch (Exception e) {
-			System.out.println("동일한 아이디가 존재합니다");
+			System.out.println("[동일한 아이디가 존재합니다]\n");
 			e.printStackTrace();
 		}
 		return result;
@@ -88,7 +88,7 @@ public class AdminDAO {
 				dto.setM_addr(rs.getString("m_addr"));
 				dto.setM_phone(rs.getString("m_phone"));
 			}else {
-				System.err.println("해당 아이디가 없습니다.");
+				System.err.println("[해당 아이디가 없습니다]\n");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

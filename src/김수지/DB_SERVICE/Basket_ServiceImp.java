@@ -59,7 +59,7 @@ public class Basket_ServiceImp implements Basket_Service{
 		case "3":
 			return;
 		default :
-        	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
+        	System.out.println("[잘못된 입력]\n");
         	
 		}
 	}

@@ -53,7 +53,7 @@ public class MainClass {
                System.out.println("[서비스를 종료합니다]");
                break;
             default :
-            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
+            	System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");
             }
          }else if(d.getM_id().equals("admin")) {
             d = am.adminstart();
@@ -83,7 +83,7 @@ public class MainClass {
             case "5": // 종료
                return;
             default :
-            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
+            	System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");
             }
          }
       }

@@ -42,13 +42,26 @@ public class Buy_ServiceImp implements Buy_Service {
 	@Override
 	public void alllist() {
 		ArrayList<Buy_DTO> ls2 = d.allBuyList();
-		System.out.println("------------------------ [회원 전체 구매 리스트] -------------------------");
-		System.out.println("주문번호\t회원 id\t책 id\t책 이름\t\t책 가격\t\t구매 개수\t최종 결제 금액\t구매 날짜");
-		for(Buy_DTO u : ls2 ) {
-			System.out.println(u.getL_num()+"\t"+u.getLm_id()+"\t"+u.getLb_id()+"\t"+
-					u.getL_name()+"\t\t"+u.getL_price()+"\t\t"+u.getL_count()+
-					"\t"+u.getL_total_price()+"\t\t"+u.getL_date());
-		}
+		System.out.printf("%-8s %-8s %-8s %-35s\t%-10s %-10s %-10s %-10s%n", 
+                "주문번호", "회원 id", "책 id", "책 이름", "책 가격", "구매 개수", "최종 결제 금액", "구매 날짜");
+
+		Collections.sort(ls2, new Comparator<Buy_DTO>() { //주문번호 오름차순으로 정렬
+            @Override
+            public int compare(Buy_DTO b1, Buy_DTO b2) {
+                return Integer.compare(b1.getL_num(), b2.getL_num());
+            }
+        });
+		
+		for (Buy_DTO u : ls2) {
+	        System.out.printf("%-10d %-8s %-8d %-35s",
+	                          u.getL_num(), u.getLm_id(), u.getLb_id(), 
+	                          u.getL_name());
+	        System.out.print("\t");
+	        System.out.printf("%-15d %-10d %-10d %-10s%n",
+                    u.getL_price(), 
+                    u.getL_count(), u.getL_total_price(), 
+                    u.getL_date());
+	    }
 		
 	}
 

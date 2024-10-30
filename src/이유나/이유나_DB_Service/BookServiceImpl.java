@@ -62,7 +62,7 @@ public class BookServiceImpl implements BookService {
 	                        b2.getPrice());
 					System.out.println("수량 : " + b_count + "\t 결제 금액 : " + (b2.getPrice()*b_count));
 					System.out.println("1. 결제 | 2. 결제 취소");
-					System.out.println(">>> ");
+					System.out.print(">>> ");
 					String num2 = input.next();
 					if(num2 == "1") {
 						System.out.println("[결제가 완료되었습니다]");
@@ -70,20 +70,20 @@ public class BookServiceImpl implements BookService {
 					}else if(num2 == "2") {
 						System.out.println("[결제가 취소되었습니다]");	
 					}else {
-		            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
+		            	System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");
 					}
 					break;
 				case "3" :
 					System.out.println("[구매가 취소되었습니다]");
 					break;
 				default :
-	            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
+					System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");				
 				}
 				break;
 			case "2":
 				return;
 			default :
-            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
+				System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");			
 			}
           
         }
