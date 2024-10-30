@@ -9,5 +9,5 @@ public interface AdminService {
 	public void allmember();
 	public MemberDTO membersearch();
 	public void memberdelete();
-	public void adminstart();
+	public MemberDTO adminstart();
 }

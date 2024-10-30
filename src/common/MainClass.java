@@ -54,7 +54,7 @@ public class MainClass {
                break;
             }
          }else if(d.getM_id().equals("admin")) {
-            am.adminstart();
+            d=am.adminstart();
             
          }else {
         	System.out.println("-------------------------------------------------");
