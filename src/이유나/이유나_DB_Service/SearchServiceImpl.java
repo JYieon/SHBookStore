@@ -39,10 +39,10 @@ public class SearchServiceImpl implements SearchService {
 			
 			ArrayList<BookDTO> sb = new ArrayList<BookDTO>();
 			sb = dao.searchBook(1, name);
-			System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
+			System.out.printf("%-10s %-20s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
 			for(BookDTO a : sb) {
 				
-				System.out.printf("%-10d %-30s %20s %20s %10d%n", 
+				System.out.printf("%-10d %-20s %20s %20s %10d%n", 
                         a.getB_id(), 
                         a.getName(), 
                         a.getAuthor(), 
