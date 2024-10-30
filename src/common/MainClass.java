@@ -57,7 +57,6 @@ public class MainClass {
             }
          }else if(d.getM_id().equals("admin")) {
             d = am.adminstart();
-            
          }else {
         	System.out.println("-------------------------------------------------");
             System.out.println("1. 로그아웃"); 
