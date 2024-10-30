@@ -17,7 +17,6 @@ public class AdminServiceImpl implements AdminService{
 	Basket_DAO dao2 = new Basket_DAO();
 	LoginServiceImpl lo = new LoginServiceImpl();
 	Buy_ServiceImp buyli = new Buy_ServiceImp();
-	boolean bool = true;
 	
 	public AdminServiceImpl() {
 		dao = new AdminDAO();
@@ -26,6 +25,7 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Override
 	public MemberDTO adminstart() {
+		boolean bool = true;
 		while(bool) {
 			System.out.println("------------------------ [관리자 메뉴] -------------------------");
 			System.out.println("1. 로그아웃");

@@ -43,7 +43,7 @@ public class BookServiceImpl implements BookService {
 				System.out.print("구매 할 수량 : ");
 				int b_count = input.nextInt();
 				System.out.println("1. 장바구니 | 2. 바로구매");
-				System.out.println(">>> ");
+				System.out.print(">>> ");
 				num = input.next();
 				
 				BookDTO b2 = books.get(booknum-1);
@@ -64,10 +64,11 @@ public class BookServiceImpl implements BookService {
 					System.out.println("1. 결제 | 2. 결제 취소");
 					System.out.print(">>> ");
 					String num2 = input.next();
-					if(num2 == "1") {
+					
+					if(num2.equals("1")) {
 						System.out.println("[결제가 완료되었습니다]");
 						dao.buy(b2,b_count,u_id);
-					}else if(num2 == "2") {
+					}else if(num2.equals("2")) {
 						System.out.println("[결제가 취소되었습니다]");	
 					}else {
 		            	System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");
