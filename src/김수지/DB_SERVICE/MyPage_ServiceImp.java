@@ -27,6 +27,8 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 		int a =0;
 		MemberDTO d1 = d;
 		while (a==0) {
+			System.out.println("-------------------------------------------------");
+			System.out.println("[마이페이지]");
 			System.out.println("1. 장바구니");
 			System.out.println("2. 구매내역");
 			System.out.println("3. 회원정보 수정 및 탈퇴");
@@ -68,6 +70,8 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 
 	// 회원정보 수정
 	public void update(MemberDTO d) {
+		System.out.println("-------------------------------------------------");
+		System.out.println("[회원 정보 수정]");
 		System.out.println("현재 아이디 : " + d.getM_id());
 		// 아이디는 고정, 변경 x
 		String pwd = null, name = null,  addr = null, pwd2 = null, phone = null;
@@ -85,9 +89,9 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 
 			switch (num) {
 			case 1:
-				System.out.println("새 비밀번호 입력: ");
+				System.out.print("새 비밀번호 입력: ");
 				pwd = input.next();
-				System.out.println("비밀번호 확인   : ");
+				System.out.print("비밀번호 확인   : ");
 				pwd2 = input.next();
 				if(pwd.equals(pwd2)) {
 					System.out.println("비밀번호 수정 완료");
@@ -99,19 +103,19 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 				break;
 			case 2:
 				System.out.println("기존 이름 : " + d.getM_name() );
-				System.out.println("이름 입력: ");
+				System.out.print("이름 입력: ");
 				name = input.nextLine();
 				d.setM_name(name);
 				break;
 			case 3:
 				System.out.println("기존 전화번호 : " + d.getM_phone());
-				System.out.println("전화번호 입력: ");
+				System.out.print("전화번호 입력: ");
 				phone = input.next();
 				d.setM_phone(phone);
 				break;
 			case 4:
 				System.out.println("기존 주소 : " + d.getM_addr());
-				System.out.println("주소 입력: ");
+				System.out.print("주소 입력: ");
 				addr = input.nextLine();
 				d.setM_addr(addr);
 				break;
@@ -132,10 +136,12 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 
 	// 회원탈퇴
 	public int delete(MemberDTO d) {
-		int result =0;
-		System.out.println("비밀번호 입력: "); // pw입력+확인
+		int result = 0;
+		System.out.println("-------------------------------------------------");
+		System.out.println("[회원 탈퇴]");
+		System.out.print("비밀번호 입력: "); 
 		String pwd = input.nextLine();
-		if(d.getM_pwd() == pwd ) {
+		if(d.getM_pwd().equals(pwd) ) {
 			result = dao.delete(d.getM_id());
 			if (result > 0) {
 				System.out.println("회원탈퇴가 완료되었습니다.");

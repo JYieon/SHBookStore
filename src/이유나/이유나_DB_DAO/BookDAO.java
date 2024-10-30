@@ -98,18 +98,18 @@ public class BookDAO {
 			PreparedStatement ps = con.prepareStatement(sql2);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				jumun = rs.getInt("l_num");
+				jumun = rs.getInt("COALESCE(MAX(l_num),0)");
+				System.out.println(jumun);
 			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
-    	String sql = "insert into buylist values(?,?, ?, ?, ?, ?,?,sysdate)";
+    	String sql = "insert into buylist values(?, ?, ?, ?, ?, ?,?,sysdate)";
     	for(Basket_DTO bk : list) {
     		try {
     			PreparedStatement ps = con.prepareStatement(sql);
-    			
-    			ps.setInt(1, jumun+1);
+  
+    			ps.setInt(1, jumun + 1);
     			ps.setString(2, bk.getKm_id());
     			ps.setInt(3, bk.getKb_id());
     			ps.setString(4, bk.getK_name());

@@ -27,9 +27,10 @@ public class MainClass {
       LoginService lo = new LoginServiceImpl();
       SignUpService su = new SignUpServiceImpl();
       AdminService am = new AdminServiceImpl();
-      MyPage_ServiceImp myPageService = new MyPage_ServiceImp(); //수정,탈퇴
-      
+      MyPage_ServiceImp myPageService = new MyPage_ServiceImp(); 
       BookServiceImpl book = new BookServiceImpl();
+      SearchServiceImpl sea = new SearchServiceImpl();
+      
       boolean bool = true;
       while(bool) {
          if(d == null) {
@@ -55,24 +56,29 @@ public class MainClass {
          }else if(d.getM_id().equals("admin")) {
             d=am.adminstart();
          }else {
-            System.out.println("1. 로그아웃"); //정성호
-            System.out.println("2. 도서 구매"); //이유나
-            System.out.println("3. 마이페이지"); //김수지, 전영민    
-            System.out.println("4. 서비스 종료"); //최지연
+        	System.out.println("-------------------------------------------------");
+            System.out.println("1. 로그아웃"); 
+            System.out.println("2. 도서 검색");            
+            System.out.println("3. 도서 구매"); 
+            System.out.println("4. 마이페이지");    
+            System.out.println("5. 서비스 종료"); 
             System.out.print(">>> ");
             num = input.nextInt();
             switch(num){
             case 1: 
                d = lo.logout();
                break;
-            case 2: 
+            case 2:
+            	sea.search();
+            	break;
+            case 3: 
                book.display(d.getM_id());
                //도서구매
                break;
-            case 3: //마이페이지
+            case 4: //마이페이지
                d = myPageService.UpdateDelete(d);
                break;
-            case 4: // 종료
+            case 5: // 종료
                return;
             }
          }

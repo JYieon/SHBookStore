@@ -19,6 +19,7 @@ public class Basket_ServiceImp implements Basket_Service{
 	
 	public void display(String id) {
 		ArrayList<Basket_DTO> list = dao.BasketList(id);
+		System.out.println("------------------------ [장바구니] -------------------------");
 		System.out.println("회원 id\t책 id\t책 이름\t\t\t책 가격\t책 개수");
 		if(list != null && !list.isEmpty()) {
 			for(Basket_DTO bk : list) {
@@ -30,14 +31,13 @@ public class Basket_ServiceImp implements Basket_Service{
 	}
 	
 	public void basket_delete(String id) {
-		
-		System.out.println("1번 구매 하기");
+		System.out.println("1번 구매하기");
 		System.out.println("2번 장바구니 삭제하기");
 		System.out.println("3번 뒤로가기");
 		int num3 = input.nextInt();
 		switch(num3) {
 		case 1:
-			int a =0;
+			int a = 0;
 			a = book_dao.all_buy(id);
 			if(a == 1) {
 				System.out.println("구매 완료 되었습니다.");

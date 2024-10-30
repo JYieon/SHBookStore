@@ -24,7 +24,9 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public MemberDTO adminstart() {
 		while(bool) {
-			System.out.println("1. 로그아웃"); //정성호
+			System.out.println("------------------------------------------------");
+			System.out.println("[관리자 메뉴]");
+			System.out.println("1. 로그아웃");
 			System.out.println("2. 회원 추가"); 
 			System.out.println("3. 회원 수정"); 	
 			System.out.println("4. 전체 회원 보기");
