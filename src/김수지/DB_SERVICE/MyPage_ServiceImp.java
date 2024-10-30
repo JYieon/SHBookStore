@@ -32,7 +32,7 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 			System.out.println("2. 구매내역");
 			System.out.println("3. 회원정보 수정 및 탈퇴");
 			System.out.println("4. 뒤로가기");
-			System.out.println(">>> ");
+			System.out.print(">>> ");
 			num = input.next();
 			input.nextLine();
 
@@ -80,7 +80,7 @@ public class MyPage_ServiceImp implements UpdateDeleteService {
 			System.out.println("3. 전화번호");
 			System.out.println("4. 주소");
 			System.out.println("5. 수정 완료");
-   
+			System.out.print(">>> ");
 			num = input.next();
 			input.nextLine();
 

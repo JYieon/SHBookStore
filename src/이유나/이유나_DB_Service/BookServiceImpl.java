@@ -21,7 +21,7 @@ public class BookServiceImpl implements BookService {
 		while(true) {
 			System.out.println("------------------------ [도서 구매] -------------------------");
 			System.out.println("1. 도서 구매하기 | 2. 뒤로가기");
-			System.out.println(">>> ");
+			System.out.print(">>> ");
 			sel = input.next();
 			switch(sel) {
 			case "1":
