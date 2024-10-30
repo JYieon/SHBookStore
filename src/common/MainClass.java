@@ -54,7 +54,6 @@ public class MainClass {
             }
          }else if(d.getM_id().equals("admin")) {
             d=am.adminstart();
-            
          }else {
             System.out.println("1. 로그아웃"); //정성호
             System.out.println("2. 도서 구매"); //이유나
