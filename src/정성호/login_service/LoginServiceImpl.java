@@ -13,7 +13,7 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public MemberDTO logout() {
-		System.out.println("로그아웃 하셨습니다.");
+		System.out.println("로그아웃 하셨습니다");
 		return null;
 	}
 
@@ -23,7 +23,7 @@ public class LoginServiceImpl implements LoginService {
 		String id,pwd;
 		System.out.print("아이디 : ");
 		id = input.next();
-		System.out.print("비밀번호 :");
+		System.out.print("비밀번호 : ");
 		pwd = input.next();
 		MemberDTO dto = dao.login(id, pwd);
 		if(dto == null) {
@@ -33,7 +33,7 @@ public class LoginServiceImpl implements LoginService {
 			System.out.println("관리자 로그인 하셨습니다.");
 		}
 		else {
-			System.out.println(dto.getM_name()+"님 로그인 성공 하셨습니다.");
+			System.out.println("[" + dto.getM_name()+" 님 로그인 성공 하셨습니다]");
 		}
 		return dto;
 	}

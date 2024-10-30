@@ -22,6 +22,7 @@ public class SearchServiceImpl implements SearchService {
 	
 		while(true) {
 		ArrayList<BookDTO> books = null ;
+		System.out.println("-------------------------------------------------");
 		System.out.println("[도서 검색]");
 		System.out.println("1. 책 제목");
 		System.out.println("2. 작가 이름");
@@ -33,7 +34,7 @@ public class SearchServiceImpl implements SearchService {
 		
 		switch(num) {
 		case 1:
-			System.out.println("책 제목 입력 : ");
+			System.out.print("책 제목 입력 : ");
 			name = input.next();
 			
 			ArrayList<BookDTO> sb = new ArrayList<BookDTO>();
@@ -52,7 +53,7 @@ public class SearchServiceImpl implements SearchService {
 			
 			break;
 		case 2:
-			System.out.println("작가 이름 입력 : ");
+			System.out.print("작가 이름 입력 : ");
 			name = input.next();
 			
 			sb = dao.searchBook(num, name);
@@ -67,10 +68,9 @@ public class SearchServiceImpl implements SearchService {
                         a.getPrice());
                        
 			}
-			//searchAuthor();
 			break;
 		case 3:
-			System.out.println("출판사 입력 : ");
+			System.out.print("출판사 입력 : ");
 			name = input.next();
 			
 			sb = dao.searchBook(num, name);
@@ -84,12 +84,10 @@ public class SearchServiceImpl implements SearchService {
                         a.getPublisher(), 
                         a.getPrice());
                        
-			
-			//searchPublisher();
 			break;
 			}
 		case 4:
-			System.out.println("카테고리 입력 : ");
+			System.out.print("카테고리 입력 : ");
 			name = input.next();
 			
 			sb = dao.searchBook(num, name);
