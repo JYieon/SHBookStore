@@ -87,7 +87,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void memberadd() {
 		SignUpServiceImpl sign = new SignUpServiceImpl();
-		sign.signUp();
+		sign.signUpInsert();
 	}
 
 	@Override
@@ -102,7 +102,7 @@ public class AdminServiceImpl implements AdminService{
 			if(name == null) {
 				name = u_dto.getM_name();
 			}
-			System.out.print("회원 전화번호(-제외)\t: "); //동일한 전화번호 가입못하도록 할 것
+			System.out.print("회원 전화번호(-제외)\t: ");
 			String phone = input.next();
 			if(phone == null) {
 				phone = u_dto.getM_phone();

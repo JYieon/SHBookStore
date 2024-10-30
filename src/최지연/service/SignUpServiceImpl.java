@@ -10,15 +10,28 @@ public class SignUpServiceImpl implements SignUpService{
 	SignUpDAO dao;
 	String name = null,  id = null, pwd = null, pwd2 = null;
 	String addr = null, phone = null;
+	Scanner input = new Scanner(System.in);
 	
 	public SignUpServiceImpl(){
 		dao = new SignUpDAO();
 	}
 	
 	public void signUp() {
-		Scanner input = new Scanner(System.in);
-		int result = 0;
+		
+		
 		System.out.println("------------------------ [회원가입] -------------------------");
+		
+		int result = signUpInsert();
+		
+		if(result == 1) {
+			System.out.println("[회원가입 성공]");
+		}else {
+			System.out.println("[회원가입 실패]");
+		}
+	}
+	
+	public int signUpInsert() {
+		int result = 0;
 		System.out.print("회원 이름\t\t: ");
 		name = input.next();
 		while(true) {
@@ -57,12 +70,7 @@ public class SignUpServiceImpl implements SignUpService{
 			}
 			result = dao.insert(id, pwd, name, phone, addr);
 		}
-		
-		if(result == 1) {
-			System.out.println("[회원가입 성공]");
-		}else {
-			System.out.println("[회원가입 실패]");
-		}
+		return result;
 	}
 }
 
