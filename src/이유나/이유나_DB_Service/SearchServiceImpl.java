@@ -30,15 +30,15 @@ public class SearchServiceImpl implements SearchService {
 		System.out.println("4. 카테고리");
 		System.out.println("5. 뒤로가기");
 		System.out.print(">> ");
-		int num = input.nextInt();
+		String num = input.next();
 		
 		switch(num) {
-		case 1:
+		case "1" :
 			System.out.print("책 제목 입력 : ");
 			name = input.next();
 			
 			ArrayList<BookDTO> sb = new ArrayList<BookDTO>();
-			sb = dao.searchBook(num, name);
+			sb = dao.searchBook(1, name);
 			System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
 			for(BookDTO a : sb) {
 				
@@ -52,11 +52,11 @@ public class SearchServiceImpl implements SearchService {
 			}
 			
 			break;
-		case 2:
+		case "2":
 			System.out.print("작가 이름 입력 : ");
 			name = input.next();
 			
-			sb = dao.searchBook(num, name);
+			sb = dao.searchBook(2, name);
 			System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
 			for(BookDTO a : sb) {
 				
@@ -69,11 +69,11 @@ public class SearchServiceImpl implements SearchService {
                        
 			}
 			break;
-		case 3:
+		case "3":
 			System.out.print("출판사 입력 : ");
 			name = input.next();
 			
-			sb = dao.searchBook(num, name);
+			sb = dao.searchBook(3, name);
 			System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
 			for(BookDTO a : sb) {
 				
@@ -86,11 +86,11 @@ public class SearchServiceImpl implements SearchService {
                        
 			break;
 			}
-		case 4:
+		case "4":
 			System.out.print("카테고리 입력 : ");
 			name = input.next();
 			
-			sb = dao.searchBook(num, name);
+			sb = dao.searchBook(4, name);
 			System.out.printf("%-10s %-30s %20s %20s %10s%n", "책 번호", "책 이름", "작가", "출판사", "가격");
 			for(BookDTO a : sb) {
 				
@@ -103,8 +103,11 @@ public class SearchServiceImpl implements SearchService {
                        
 			}
 			break;
-		case 5://뒤로가기
+		case "5"://뒤로가기
 			return;
+			
+		default :
+			System.out.println(" 잘못된 입력입니다. 다시 입력해주세요");
 			
 		}
 		
