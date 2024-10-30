@@ -21,7 +21,7 @@ public class MainClass {
    public static MemberDTO d = null; // 해당 아이디의 member 전체 값
    public static void main(String[] args) {
       Scanner input = new Scanner(System.in);
-      int num;
+      String num = null;
       BookServiceImpl bookimpl = new BookServiceImpl();
       String n = null; // m_id값
       LoginService lo = new LoginServiceImpl();
@@ -39,22 +39,24 @@ public class MainClass {
             System.out.println("2. 회원가입"); //최지연
             System.out.println("3. 서비스 종료");
             System.out.print(">>> ");
-            num = input.nextInt();
+            num = input.next();
             switch(num){
 
-            case 1: //로그인
+            case "1": //로그인
                d = lo.login2(); 
                break;
-            case 2: //회원가입
+            case "2": //회원가입
                su.signUp();
                break;
-            case 3: //도서구매
+            case "3": //도서구매
                bool = false;
                System.out.println("[서비스를 종료합니다]");
                break;
+            default :
+            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
             }
          }else if(d.getM_id().equals("admin")) {
-            d=am.adminstart();
+            d = am.adminstart();
             
          }else {
         	System.out.println("-------------------------------------------------");
@@ -64,23 +66,25 @@ public class MainClass {
             System.out.println("4. 마이페이지");    
             System.out.println("5. 서비스 종료"); 
             System.out.print(">>> ");
-            num = input.nextInt();
+            num = input.next();
             switch(num){
-            case 1: 
+            case "1": 
                d = lo.logout();
                break;
-            case 2:
+            case "2":
             	sea.search();
             	break;
-            case 3: 
+            case "3": 
                book.display(d.getM_id());
                //도서구매
                break;
-            case 4: //마이페이지
+            case "4": //마이페이지
                d = myPageService.UpdateDelete(d);
                break;
-            case 5: // 종료
+            case "5": // 종료
                return;
+            default :
+            	System.out.println("[잘못된 입력 : 다시 입력해주세요]");
             }
          }
       }

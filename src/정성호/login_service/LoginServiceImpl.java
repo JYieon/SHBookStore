@@ -29,8 +29,6 @@ public class LoginServiceImpl implements LoginService {
 		if(dto == null) {
 //			System.out.println("존재하는 id가 없습니다.");
 			System.out.println("다시 로그인하세요!!!");
-		}else if(dto.getM_id().equals("admin")) {
-			System.out.println("관리자 로그인 하셨습니다.");
 		}
 		else {
 			System.out.println("[" + dto.getM_name()+" 님 로그인 성공 하셨습니다]");
