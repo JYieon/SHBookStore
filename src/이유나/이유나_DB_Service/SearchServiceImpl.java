@@ -27,8 +27,7 @@ public class SearchServiceImpl implements SearchService {
 		System.out.println("1. 책 제목");
 		System.out.println("2. 작가 이름");
 		System.out.println("3. 출판사");
-		System.out.println("4. 카테고리");
-		System.out.println("5. 뒤로가기");
+		System.out.println("4. 뒤로가기");
 		System.out.print(">> ");
 		String num = input.next();
 		
@@ -96,28 +95,7 @@ public class SearchServiceImpl implements SearchService {
 			break; 
 			
 		case "4":
-			System.out.print("카테고리 입력 : ");
-			name = input.next();
-			
-			sb = dao.searchBook(4, name);
-			if (sb.isEmpty()) {
-				System.out.println("[검색 결과가 없습니다]\n");
-		    } else {
-		    	System.out.printf("%-8s %-40s\t%-10s %-10s %-10s\n", 
-		                "책 id", "책 이름", "작가", "출판사", "가격");
-				for(BookDTO a : sb) {
-					System.out.printf("%-8d %-40s",
-	                          a.getB_id(), a.getName());
-					System.out.print("\t");
-					System.out.printf("%-10s %-10s %-10d%n",
-							a.getAuthor(), a.getPublisher(), a.getPrice());
-				}
-			}
-			
-			break;
-		case "5"://뒤로가기
-			return;
-			
+			return; // 뒤로가기
 		default :
 			System.out.println("[잘못된 입력 : 다시 입력해주세요]\n");		
 		}
