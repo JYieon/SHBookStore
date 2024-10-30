@@ -5,6 +5,8 @@ import 최지연.service.*;
 import java.util.Scanner;
 
 import 김수지.DB_DAO.Basket_DAO;
+import 김수지.DB_DAO.Buy_DAO;
+import 김수지.DB_SERVICE.Buy_ServiceImp;
 import 정성호.login_dao.AdminDAO;
 import 정성호.member_dto.MemberDTO;
 import 정성호.login_service.*;
@@ -14,6 +16,7 @@ public class AdminServiceImpl implements AdminService{
 	AdminDAO dao;
 	Basket_DAO dao2 = new Basket_DAO();
 	LoginServiceImpl lo = new LoginServiceImpl();
+	Buy_ServiceImp buyli = new Buy_ServiceImp();
 	boolean bool = true;
 	
 	public AdminServiceImpl() {
@@ -32,6 +35,7 @@ public class AdminServiceImpl implements AdminService{
 			System.out.println("4. 전체 회원 보기");
 			System.out.println("5. 회원 찾기");
 			System.out.println("6. 회원 삭제");
+			System.out.println("7. 회원 구매리스트");
 			System.out.print(">>> ");
 			int num = input.nextInt();
 			switch(num){
@@ -65,7 +69,11 @@ public class AdminServiceImpl implements AdminService{
 			case 6: // 회원 삭제
 				memberdelete();
 				break;
+			case 7:
+				buyli.alllist();
+				break;
 				}
+			
 		}
 		return null;
 	}

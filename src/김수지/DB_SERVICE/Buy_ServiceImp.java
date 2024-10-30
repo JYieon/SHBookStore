@@ -23,5 +23,18 @@ public class Buy_ServiceImp implements Buy_Service {
 					"\t"+u.getL_total_price()+"\t\t"+u.getL_date());
 		}
 	}
+	@Override
+	public void alllist() {
+		ArrayList<Buy_DTO> ls2 = d.allBuyList();
+		System.out.println("------------------------ [회원 전체 구매 리스트] -------------------------");
+		System.out.println("주문번호\t회원 id\t책 id\t책 이름\t\t책 가격\t\t구매 개수\t최종 결제 금액\t구매 날짜");
+		for(Buy_DTO u : ls2 ) {
+			System.out.println(u.getL_num()+"\t"+u.getLm_id()+"\t"+u.getLb_id()+"\t"+
+					u.getL_name()+"\t\t"+u.getL_price()+"\t\t"+u.getL_count()+
+					"\t"+u.getL_total_price()+"\t\t"+u.getL_date());
+		}
+		
+	}
 
+	
 }
